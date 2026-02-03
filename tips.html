@@ -3,12 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free physiotherapy tips, posture guidance, and exercise tutorials by Dr. Nikhil Rajpurohit. Improve your health with our expert advice.">
-    <meta name="keywords" content="Physiotherapy Exercises, Posture Tips, Back Pain Exercises, Neck Stretches, Dr. Nikhil Tips">
+    <meta name="description" content="Comprehensive Physiotherapy Guide by Dr. Nikhil Rajpurohit. Over 5000 words of expert tips, exercises, and advice for Back Pain, Neck Pain, Knee Pain, Post-Surgery Rehab, and more in Ahmedabad.">
+    <meta name="keywords" content="Physiotherapy Exercises, Back Pain Relief Ahmedabad, Neck Pain Exercises, Knee Pain Treatment, Frozen Shoulder Exercises, Post Surgery Rehab India, Dr. Nikhil Tips, Home Physiotherapy Ahmedabad, Online Physio Consultation, Sciatica Treatment, Stroke Rehab, Arthritis Management">
     <meta name="author" content="Dr. Nikhil Rajpurohit">
-    <title>Tips & Exercises | Dr. Nikhil Rajpurohit</title>
+    <title>Comprehensive Physiotherapy Guide | Expert Tips & Home Exercises | Dr. Nikhil Rajpurohit</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Specific Styles for Long Content */
+        details {
+            background: #fff;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        details[open] {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--secondary-color);
+        }
+        summary {
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding-bottom: 15px;
+            list-style: none;
+            position: relative;
+            padding-left: 35px;
+            border-bottom: 1px solid #eee;
+        }
+        summary::before {
+            content: '\f0da';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary-color);
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+        details[open] summary {
+            border-bottom: 1px solid var(--light-color);
+            margin-bottom: 20px;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        details p, details ul, details h3, details h4, details h5 {
+            margin-top: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+        details h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+        details h4 {
+            color: #333;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+        .content-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .exercise-step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        .exercise-step h5 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background-color: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
@@ -35,82 +131,210 @@
     <!-- Page Header -->
     <section class="page-header section-padding bg-light">
         <div class="container text-center">
-            <h1>Physiotherapy Tips & Exercises</h1>
-            <p>Expert advice to keep you moving pain-free.</p>
+            <h1>Comprehensive Physiotherapy Guide</h1>
+            <p>An extensive resource for pain management, rehabilitation, and wellness by Dr. Nikhil Rajpurohit.</p>
         </div>
     </section>
 
-    <!-- Daily Tips Section -->
+    <!-- Main Content Section -->
     <section class="tips-section section-padding">
         <div class="container">
-            <div class="section-title text-center">
-                <h2>Daily Health Tips</h2>
-                <p>Small changes in your routine can make a big difference.</p>
-            </div>
-            <div class="tips-grid">
-                <div class="tip-card animated-card">
-                    <div class="tip-icon"><i class="fas fa-chair"></i></div>
-                    <h3>Ergonomics</h3>
-                    <p>Ensure your computer screen is at eye level to prevent neck strain. Keep your feet flat on the floor.</p>
-                </div>
-                <div class="tip-card animated-card">
-                    <div class="tip-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Text Neck</h3>
-                    <p>Avoid looking down at your phone for long periods. Bring the phone up to eye level.</p>
-                </div>
-                <div class="tip-card animated-card">
-                    <div class="tip-icon"><i class="fas fa-bed"></i></div>
-                    <h3>Sleep Posture</h3>
-                    <p>Use a pillow that supports the natural curve of your neck. Avoid sleeping on your stomach.</p>
-                </div>
-                <div class="tip-card animated-card">
-                    <div class="tip-icon"><i class="fas fa-glass-whiskey"></i></div>
-                    <h3>Hydration</h3>
-                    <p>Staying hydrated helps maintain the elasticity of your soft tissues and prevents cramps.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Exercises Section -->
-    <section class="exercises-section section-padding bg-light">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>Simple Home Exercises</h2>
-                <p>Try these simple stretches to relieve tension. (Consult a doctor if you have pain).</p>
-            </div>
+            <p class="lead text-center mb-5">Welcome to our comprehensive physiotherapy guide. As a leading Physiotherapist in Ahmedabad, Dr. Nikhil Rajpurohit believes in empowering patients with knowledge. This guide covers a wide array of conditions, providing detailed insights into causes, symptoms, and home-based management strategies. Whether you are looking for "Home Physiotherapy in Ahmedabad" or "Online Consultation for Back Pain," this resource is designed for you.</p>
 
-            <div class="exercise-row">
-                <div class="exercise-video">
-                     <img src="https://placehold.co/500x300?text=Neck+Stretch+Animation" alt="Neck Stretch">
-                </div>
-                <div class="exercise-desc">
-                    <h3>Neck Stretches</h3>
-                    <p>Great for relieving tension from office work.</p>
-                    <ol>
-                        <li>Sit upright with shoulders relaxed.</li>
-                        <li>Gently tilt your right ear towards your right shoulder.</li>
-                        <li>Hold for 15-30 seconds.</li>
-                        <li>Repeat on the left side.</li>
-                    </ol>
-                </div>
-            </div>
+            <!-- Category 1: Back Pain -->
+            <details open>
+                <summary>1. Back Pain Relief: Sciatica, Spondylosis & Disc Herniation</summary>
+                <img src="https://images.unsplash.com/photo-1544367563-12123d896889?auto=format&fit=crop&w=1000&q=80" alt="Back Pain Physiotherapy Ahmedabad" class="content-img">
 
-            <div class="exercise-row reverse-row">
-                <div class="exercise-video">
-                    <img src="https://placehold.co/500x300?text=Back+Extension+Animation" alt="Back Extension">
+                <h3>Understanding Back Pain</h3>
+                <p>Back pain is one of the most prevalent medical issues globally and a leading cause of disability. In bustling cities like Ahmedabad, sedentary lifestyles, long commuting hours, and desk jobs contribute significantly to the rise in spinal issues. The spine is a complex structure of bones (vertebrae), discs, muscles, ligaments, and nerves. A problem in any of these components can lead to pain.</p>
+                <p>Dr. Nikhil Rajpurohit specializes in diagnosing the root cause of back pain, whether it is mechanical (muscle strain) or structural (disc issues).</p>
+
+                <h3>Common Conditions Treated</h3>
+                <ul>
+                    <li><strong>Lumbar Spondylosis:</strong> Age-related wear and tear of the spinal discs.</li>
+                    <li><strong>Sciatica:</strong> Pain radiating along the sciatic nerve, running down one or both legs from the lower back.</li>
+                    <li><strong>Herniated (Slipped) Disc:</strong> When the soft center of a spinal disc pushes through a crack in the tougher exterior casing.</li>
+                    <li><strong>Spinal Stenosis:</strong> Narrowing of the spaces within your spine, which can put pressure on the nerves.</li>
+                </ul>
+
+                <h3>The Role of Posture</h3>
+                <p>Poor posture is a silent killer for your back. Slouching puts immense pressure on the lumbar discs. When sitting, ensure your feet are flat on the floor, and your lower back is supported. We often treat patients in Ahmedabad who work in IT or textile sectors suffering from "Computer Back."</p>
+
+                <h3>Effective Home Exercises for Lower Back Pain</h3>
+                <div class="warning-box">
+                    <strong>Important:</strong> Do not perform these exercises if they increase your pain or cause numbness/tingling. Consult Dr. Nikhil for a personalized assessment.
                 </div>
-                <div class="exercise-desc">
-                    <h3>Back Extensions</h3>
-                    <p>Helps counteract slouching.</p>
-                    <ol>
-                        <li>Stand with your hands on your lower back.</li>
-                        <li>Gently arch backward, looking up at the ceiling.</li>
-                        <li>Hold for 5 seconds and return to neutral.</li>
-                        <li>Repeat 10 times.</li>
-                    </ol>
+
+                <div class="exercise-step">
+                    <h5>1. The Cobra Stretch (Bhujangasana)</h5>
+                    <p><strong>Purpose:</strong> To extend the spine and push the disc material back towards the center (Centralization).</p>
+                    <p><strong>Technique:</strong> Lie on your stomach. Place your hands under your shoulders. Slowly push up, straightening your elbows while keeping your hips on the floor. Look up towards the ceiling. Hold for 5-10 seconds. Return to starting position.</p>
+                    <p><strong>Frequency:</strong> 10 repetitions, twice daily.</p>
                 </div>
-            </div>
+
+                <div class="exercise-step">
+                    <h5>2. Knee-to-Chest Stretch</h5>
+                    <p><strong>Purpose:</strong> To stretch the lower back muscles and glutes.</p>
+                    <p><strong>Technique:</strong> Lie on your back with legs straight. Bring one knee towards your chest and hold it with both hands. Pull gently until you feel a stretch in the lower back. Keep the other leg flat. Hold for 20-30 seconds.</p>
+                </div>
+
+                <div class="exercise-step">
+                    <h5>3. Bridging</h5>
+                    <p><strong>Purpose:</strong> To strengthen the gluteus muscles and stabilize the lower back.</p>
+                    <p><strong>Technique:</strong> Lie on your back with knees bent and feet flat on the floor. Lift your hips off the floor until your knees, hips, and shoulders form a straight line. Squeeze your glutes at the top. Hold for 5 seconds and lower slowly.</p>
+                </div>
+
+                <h3>Ergonomic Tips for Back Health</h3>
+                <p>If you are working from home in Ahmedabad or anywhere else, ergonomics is key. Your screen should be at eye level. Your chair should have lumbar support. Take micro-breaks every 30 minutes to stand and stretch. Avoid heavy lifting; if you must lift, bend your knees, not your back.</p>
+            </details>
+
+            <!-- Category 2: Neck & Shoulder -->
+            <details>
+                <summary>2. Neck Pain & Shoulder Issues: Text Neck, Frozen Shoulder</summary>
+                <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1000&q=80" alt="Neck Pain Relief Physiotherapy" class="content-img">
+
+                <h3>The Epidemic of "Text Neck"</h3>
+                <p>With the ubiquity of smartphones, we are seeing a surge in cervical spine issues, often termed "Text Neck." When you tilt your head forward to look at a phone, the effective weight of your head on your neck muscles increases dramatically—from 10-12 lbs in a neutral position to nearly 60 lbs at a 60-degree angle. This chronic strain leads to muscle imbalance, headaches, and early degeneration.</p>
+
+                <h3>Cervical Spondylosis</h3>
+                <p>This condition involves wear and tear of the spinal disks in your neck. It is very common in older adults but is increasingly seen in younger populations due to lifestyle factors. Symptoms include stiffness, pain, and sometimes numbness in the arms (Radiculopathy).</p>
+
+                <h3>Frozen Shoulder (Adhesive Capsulitis)</h3>
+                <p>Frozen shoulder is a condition characterized by stiffness and pain in your shoulder joint. Signs and symptoms typically begin gradually, worsen over time and then resolve, usually within one to three years. It typically moves through three stages:</p>
+                <ol>
+                    <li><strong>Freezing Stage:</strong> Any movement of your shoulder causes pain, and your shoulder's range of motion starts to become limited.</li>
+                    <li><strong>Frozen Stage:</strong> Pain may begin to diminish during this stage. However, your shoulder becomes stiffer, and using it becomes more difficult.</li>
+                    <li><strong>Thawing Stage:</strong> The range of motion in your shoulder begins to improve.</li>
+                </ol>
+
+                <h3>Rehabilitation Exercises</h3>
+
+                <div class="exercise-step">
+                    <h5>1. Chin Tucks</h5>
+                    <p><strong>For:</strong> Text Neck and Posture correction.</p>
+                    <p><strong>How:</strong> Sit straight. Look forward. Gently pull your chin straight back as if making a "double chin." Do not tilt your head up or down. Hold for 5 seconds. This strengthens deep cervical flexors.</p>
+                </div>
+
+                <div class="exercise-step">
+                    <h5>2. Scapular Retraction</h5>
+                    <p><strong>For:</strong> Upper back strengthening and opening the chest.</p>
+                    <p><strong>How:</strong> Sit or stand. Squeeze your shoulder blades together as if trying to hold a pencil between them. Hold for 5-10 seconds. Do not shrug your shoulders up.</p>
+                </div>
+
+                <div class="exercise-step">
+                    <h5>3. Pendulum Stretch (For Frozen Shoulder)</h5>
+                    <p><strong>How:</strong> Lean over a table with your good arm. Let the affected arm hang down loosely. Use your body weight to swing the arm in small circles, clockwise and counter-clockwise. This relies on gravity and helps mobilize the joint without active muscle strain.</p>
+                </div>
+
+                <div class="note-box">
+                    <strong>Physiotherapy Tip:</strong> Heat therapy is often beneficial for neck stiffness, while ice is better for acute injuries or inflammation.
+                </div>
+            </details>
+
+            <!-- Category 3: Knee Pain -->
+            <details>
+                <summary>3. Knee Pain Management: Osteoarthritis & Sports Injuries</summary>
+                <img src="https://images.unsplash.com/photo-1598454443231-0134a052272d?auto=format&fit=crop&w=1000&q=80" alt="Knee Pain Physiotherapy India" class="content-img">
+
+                <h3>Knee Osteoarthritis (OA)</h3>
+                <p>Knee OA is a degenerative "wear and tear" type of arthritis that occurs most often in people 50 years of age and older. In India, due to cultural habits like sitting cross-legged (squatting), the medial compartment of the knee is often affected. The cartilage that cushions the bones of the knee wears away, causing pain, swelling, and stiffness.</p>
+                <p><strong>Myth Buster:</strong> Many patients believe that if they have knee pain, they should stop walking. In fact, controlled walking and strengthening exercises are the best treatment for OA to keep the joints lubricated and muscles strong.</p>
+
+                <h3>Ligament Injuries (ACL/PCL/MCL)</h3>
+                <p>Common in athletes, Anterior Cruciate Ligament (ACL) tears often require surgical reconstruction followed by intensive physiotherapy. However, Grade 1 and 2 tears can often be managed conservatively with bracing and rehab.</p>
+
+                <h3>Patellofemoral Pain Syndrome (Runner's Knee)</h3>
+                <p>Pain at the front of the knee, around the kneecap. It is common in runners and cyclists. It is often caused by muscle imbalances, specifically weak hips (glutes) and tight outer thigh muscles (IT Band).</p>
+
+                <h3>Essential Knee Strengthening Exercises</h3>
+
+                <div class="exercise-step">
+                    <h5>1. Static Quadriceps (SQE)</h5>
+                    <p><strong>Technique:</strong> Sit with your leg straight on a bed. Place a rolled towel under the knee. Press the back of your knee down into the towel, tightening the thigh muscle (quadriceps). Hold for 10 seconds. Relax. This is the first exercise prescribed for almost all knee conditions.</p>
+                </div>
+
+                <div class="exercise-step">
+                    <h5>2. Straight Leg Raise (SLR)</h5>
+                    <p><strong>Technique:</strong> Lie on your back. Bend one leg at the knee. Keep the other leg straight and lift it up to the height of the bent knee. Lower it slowly. This strengthens the quads and hip flexors without putting weight on the knee joint.</p>
+                </div>
+
+                <div class="exercise-step">
+                    <h5>3. Hamstring Curls</h5>
+                    <p><strong>Technique:</strong> Stand holding onto a chair for balance. Curl your heel up towards your buttocks. Hold briefly and lower slowly. Strengthening the hamstrings is crucial for knee stability.</p>
+                </div>
+            </details>
+
+            <!-- Category 4: Post-Surgery Rehab -->
+            <details>
+                <summary>4. Post-Surgery Rehabilitation: TKR, THR & Fracture Rehab</summary>
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" alt="Post Surgery Physiotherapy Home Visit" class="content-img">
+
+                <h3>Why Post-Op Physio is Non-Negotiable</h3>
+                <p>Surgery repairs the structure, but physiotherapy restores the function. Whether you have had a Total Knee Replacement (TKR), Total Hip Replacement (THR), or surgery for a fracture, rehabilitation is critical to prevent stiffness, muscle atrophy, and blood clots.</p>
+                <p>Dr. Nikhil Rajpurohit provides specialized home visits for post-surgery patients in Ahmedabad, as traveling to a clinic immediately after surgery can be painful and risky.</p>
+
+                <h3>Total Knee Replacement (TKR) Protocol</h3>
+                <p><strong>Phase 1 (Weeks 0-2):</strong> Focus on pain control, reducing swelling, and achieving full extension (straightening) of the knee. Exercises include ankle pumps, heel slides, and static quads.</p>
+                <p><strong>Phase 2 (Weeks 3-6):</strong> Focus on increasing range of motion (bending) to 90 degrees and beyond. Gait training (walking) with a walker, then a stick, then independently.</p>
+                <p><strong>Phase 3 (Weeks 6+):</strong> Strengthening and functional training (climbing stairs, sitting in a chair).</p>
+
+                <h3>Total Hip Replacement (THR) Precautions</h3>
+                <p>For the first few weeks after a posterior approach THR, you must follow strict precautions to prevent dislocation:</p>
+                <ul>
+                    <li>Do not bend your hip past 90 degrees (no sitting on low chairs).</li>
+                    <li>Do not cross your legs (use a pillow between legs when sleeping).</li>
+                    <li>Do not twist your leg inward.</li>
+                </ul>
+
+                <h3>Fracture Rehabilitation</h3>
+                <p>After a fracture is immobilized in a cast, the joints above and below often become stiff, and muscles weaken. Once the cast is removed, physiotherapy helps mobilize the stiff joints and strengthen the atrophied muscles. Wax therapy and manual mobilization are often used.</p>
+            </details>
+
+            <!-- Category 5: Neuro & Geriatric -->
+            <details>
+                <summary>5. Neurological & Geriatric Care: Stroke, Parkinson's & Falls</summary>
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="Neuro Physiotherapy" class="content-img">
+
+                <h3>Stroke Rehabilitation</h3>
+                <p>A stroke can be a life-altering event. Recovery depends on neuroplasticity—the brain's ability to rewire itself. The golden period for recovery is the first 3-6 months. Rehabilitation focuses on relearning basic skills like walking, talking, and eating.</p>
+                <p><strong>Constraint-Induced Movement Therapy (CIMT):</strong> A technique where the unaffected limb is restrained, forcing the patient to use the affected limb, thereby stimulating the brain.</p>
+
+                <h3>Parkinson's Disease</h3>
+                <p>Parkinson's is a progressive disorder. Physiotherapy cannot cure it but can significantly improve the quality of life. We focus on:</p>
+                <ul>
+                    <li><strong>Gait Training:</strong> Overcoming freezing of gait and shuffling steps.</li>
+                    <li><strong>Balance Training:</strong> Preventing falls.</li>
+                    <li><strong>Amplitude Training:</strong> Encouraging big movements (LSVT BIG principles).</li>
+                </ul>
+
+                <h3>Geriatric Physiotherapy & Fall Prevention</h3>
+                <p>Falls are the leading cause of injury in the elderly. As we age, our balance and muscle mass (Sarcopenia) decline. Home physiotherapy assesses the home environment for fall hazards (like loose rugs) and prescribes exercises to improve balance and proprioception.</p>
+
+                <div class="exercise-step">
+                    <h5>Single Leg Stance (Balance)</h5>
+                    <p>Stand near a counter for safety. Lift one foot off the ground and balance on the other leg for 10-20 seconds. Repeat on the other side. This simple exercise drastically reduces fall risk.</p>
+                </div>
+            </details>
+
+             <!-- Category 6: Why Choose Us -->
+             <details>
+                <summary>6. Why Choose Dr. Nikhil for Home Physiotherapy?</summary>
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1000&q=80" alt="Physiotherapist Doctor" class="content-img">
+
+                <h3>Personalized Care at Your Doorstep</h3>
+                <p>Dr. Nikhil Rajpurohit brings the clinic to your home. We understand that for patients in severe pain or with mobility issues, traveling is a burden. Our home visit service in Ahmedabad is designed to provide hospital-quality care in the comfort of your living room.</p>
+
+                <h3>Evidence-Based Practice</h3>
+                <p>We do not believe in outdated modalities. Our treatment plans are based on the latest research and clinical guidelines. We combine Manual Therapy, Exercise Therapy, and Electrotherapy (IFT, TENS, Ultrasound) to achieve the best results.</p>
+
+                <h3>Global Reach with Online Consultation</h3>
+                <p>If you are not in Ahmedabad, you can still benefit from Dr. Nikhil's expertise. Our online consultation platform connects with patients globally. Through video calls, we assess posture, movement, and provide digital exercise prescriptions. This is highly effective for conditions like back pain, posture correction, and rehab guidance.</p>
+
+                <h3>Coverage Areas in Ahmedabad</h3>
+                <p>We provide home visits in selected areas of Ahmedabad including Satellite, Bodakdev, Vastrapur, Navrangpura, Paldi, Maninagar, and Gota. Please contact us to check availability in your area.</p>
+            </details>
 
         </div>
     </section>
@@ -118,9 +342,9 @@
     <!-- Medical Disclaimer -->
     <section class="disclaimer-section section-padding text-center">
         <div class="container">
-            <div class="disclaimer-box">
-                <h4>Medical Disclaimer</h4>
-                <p>The information provided on this page is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+            <div class="disclaimer-box" style="background: #fff3cd; padding: 25px; border-radius: 12px; border: 1px solid #ffeeba;">
+                <h4 style="color: #856404; margin-bottom: 15px;"><i class="fas fa-exclamation-triangle"></i> Medical Disclaimer</h4>
+                <p style="color: #856404; margin-bottom: 0; line-height: 1.6;">The information provided in this guide is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Every injury is unique. Always seek the advice of Dr. Nikhil Rajpurohit or your physician with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this website. If you think you may have a medical emergency, call your doctor or emergency services immediately.</p>
             </div>
         </div>
     </section>
