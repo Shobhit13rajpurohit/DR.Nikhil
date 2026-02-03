@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Select elements to animate
-    const animateElements = document.querySelectorAll('.service-card, .intro-text, .intro-image, .content-block, .tip-card, .testimonial-box, .section-title, .hero-content');
+    const animateElements = document.querySelectorAll('.service-card, .intro-text, .intro-image, .content-block, .tip-card, .testimonial-box, .section-title, .hero-content, details, .step-list li, .info-item, .contact-form-wrapper');
 
     // Add base class and observe
     animateElements.forEach(el => {

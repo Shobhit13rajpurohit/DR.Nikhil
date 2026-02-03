@@ -608,3 +608,40 @@ p {
     .hero-content h1 { font-size: 2rem; }
     .section-padding { padding: 50px 0; }
 }
+
+/* Enhanced Dynamic Effects */
+.service-card, .testimonial-box, .intro-image img, .content-img, .tip-card {
+    transition: all 0.4s ease;
+}
+
+.service-card:hover, .testimonial-box:hover, .tip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.intro-image img:hover, .content-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Details Animation */
+details[open] summary ~ * {
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Animation Class */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
