@@ -75,4 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.boxShadow = 'none'; // Or keep it if you want it always there
         }
     });
+
+    // Dynamic Copyright Year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
