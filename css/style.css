@@ -621,6 +621,16 @@ p {
 }
 
 @media (max-width: 768px) {
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+    }
+
     .hamburger { display: block; }
 
     .nav-links {
