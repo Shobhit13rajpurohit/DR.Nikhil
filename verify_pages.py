@@ -37,6 +37,11 @@ def run():
         page.screenshot(path='/home/jules/verification/services_page.png', full_page=True)
         print("Captured services.html")
 
+        # Verify Gallery
+        page.goto('file:///app/gallery.html')
+        page.screenshot(path='/home/jules/verification/gallery_page.png', full_page=True)
+        print("Captured gallery.html")
+
         browser.close()
 
 if __name__ == "__main__":
