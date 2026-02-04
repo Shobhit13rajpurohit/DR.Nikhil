@@ -254,32 +254,6 @@ p {
     z-index: 2;
 }
 
-/* Floating Particles */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.particle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: float 20s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-    20% { opacity: 0.5; }
-    80% { opacity: 0.5; }
-    100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
-}
 
 .hero-content h1 {
     color: white;
@@ -700,119 +674,6 @@ p {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Pain Decoder Widget */
-.pain-decoder-section {
-    background: linear-gradient(180deg, var(--bg-light) 0%, white 100%);
-}
-
-.badge-pill {
-    background: var(--accent-color);
-    color: var(--text-dark);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-.decoder-wrapper {
-    max-width: 900px;
-    margin: 40px auto 0;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-.decoder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 30px;
-}
-
-.body-part-selector {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.body-part {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    box-shadow: var(--shadow);
-}
-
-.body-part:hover, .body-part.active {
-    border-color: var(--primary-color);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.body-part .icon-circle {
-    width: 60px;
-    height: 60px;
-    background: var(--bg-light);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 10px;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.body-part.active .icon-circle {
-    background: var(--primary-color);
-    color: white;
-}
-
-.decoder-result {
-    background: var(--bg-light);
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 300px;
-    position: relative;
-}
-
-.placeholder-text {
-    text-align: center;
-    color: var(--text-light);
-    opacity: 0.7;
-}
-
-.placeholder-text i {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.result-tips {
-    background: rgba(255, 193, 7, 0.1);
-    border-left: 4px solid var(--accent-color);
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-/* Pulse Animation */
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.pulse-anim {
-    animation: pulse 2s infinite;
-}
 
 .btn-gradient {
     background: var(--gradient-primary);
@@ -948,7 +809,7 @@ p {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .intro-grid, .reverse-grid, .contact-grid, .exercise-row, .footer-grid, .pathways-grid, .decoder-grid {
+    .intro-grid, .reverse-grid, .contact-grid, .exercise-row, .footer-grid, .pathways-grid {
         grid-template-columns: 1fr;
     }
 
