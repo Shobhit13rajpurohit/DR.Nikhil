@@ -15,6 +15,14 @@
 
     <!-- Header -->
     <header class="header">
+        <!-- Live Ticker -->
+        <div class="live-ticker">
+            <div class="container">
+                <span class="live-dot"></span>
+                <p><strong>Dr. Nikhil is currently accepting Home Visits for Tomorrow.</strong> Only 2 slots left!</p>
+            </div>
+        </div>
+
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo"></a>
@@ -35,6 +43,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="particles" id="particles"></div>
         <div class="hero-content container">
             <h1 class="animate-on-scroll">Reclaim Your Life from Pain.<br>Expert Physiotherapy, Anywhere.</h1>
             <p class="animate-on-scroll">World-class specialized care by Dr. Nikhil Rajpurohit. <br>Providing premium <strong>Home Visits in Ahmedabad</strong> and expert <strong>Online Consultations globally</strong>.</p>
@@ -68,6 +77,58 @@
                 <div class="intro-image">
                     <div class="image-wrapper glass-card p-2">
                         <img src="Public/dr.nikhil.jpeg" alt="Dr. Nikhil Rajpurohit Physiotherapist" style="border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Pain Decoder (New) -->
+    <section class="pain-decoder-section section-padding bg-light" id="pain-decoder">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="badge-pill">Start Here</span>
+                <h2>Interactive Pain Assessment</h2>
+                <p>Don't guess. Tap where it hurts to get Dr. Nikhil's instant recommendation.</p>
+            </div>
+
+            <div class="decoder-wrapper glass-card">
+                <div class="decoder-grid">
+                    <div class="body-part-selector">
+                        <div class="body-part" data-part="neck">
+                            <div class="icon-circle"><i class="fas fa-user-injured"></i></div>
+                            <span>Neck</span>
+                        </div>
+                        <div class="body-part" data-part="shoulder">
+                            <div class="icon-circle"><i class="fas fa-dumbbell"></i></div>
+                            <span>Shoulder</span>
+                        </div>
+                        <div class="body-part" data-part="back">
+                            <div class="icon-circle"><i class="fas fa-bone"></i></div>
+                            <span>Back</span>
+                        </div>
+                        <div class="body-part" data-part="knee">
+                            <div class="icon-circle"><i class="fas fa-running"></i></div>
+                            <span>Knee</span>
+                        </div>
+                    </div>
+
+                    <div class="decoder-result" id="decoder-result">
+                        <div class="placeholder-text">
+                            <i class="fas fa-hand-pointer pulse-anim"></i>
+                            <h3>Select a body part to decode your pain.</h3>
+                        </div>
+                        <div class="result-content" style="display: none;">
+                            <h3 id="result-title">Knee Pain</h3>
+                            <p id="result-desc">Common causes include ligament strain or meniscus issues.</p>
+
+                            <div class="result-tips">
+                                <h5><i class="fas fa-lightbulb text-warning"></i> Quick Tip:</h5>
+                                <p id="result-tip">Avoid deep squats. Apply ice for 15 mins.</p>
+                            </div>
+
+                            <a href="contact.html" class="btn btn-primary btn-sm mt-3">Book Relief Session</a>
+                        </div>
                     </div>
                 </div>
             </div>
