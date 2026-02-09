@@ -470,6 +470,47 @@ def generate_pages():
                     <a href="{link}">Physiotherapist in {area}</a>
                 </div>"""
 
+    # Online Consultations Section
+    online_pages = {
+        "Gujarat (State Wide)": "best-physiotherapist-gujarat.html",
+        "Ahmedabad (Online)": "online-physiotherapy-ahmedabad.html",
+        "Surat": "online-physiotherapy-surat.html",
+        "Vadodara": "online-physiotherapy-vadodara.html",
+        "Rajkot": "online-physiotherapy-rajkot.html",
+        "Gandhinagar": "online-physiotherapy-gandhinagar.html",
+        "Bhavnagar": "online-physiotherapy-bhavnagar.html",
+        "Jamnagar": "online-physiotherapy-jamnagar.html",
+        "Junagadh": "online-physiotherapy-junagadh.html",
+        "Anand": "online-physiotherapy-anand.html",
+        "Nadiad": "online-physiotherapy-nadiad.html",
+        "Mehsana": "online-physiotherapy-mehsana.html",
+        "Morbi": "online-physiotherapy-morbi.html",
+        "Bharuch": "online-physiotherapy-bharuch.html",
+        "Vapi": "online-physiotherapy-vapi.html",
+        "Navsari": "online-physiotherapy-navsari.html"
+    }
+
+    locations_content += """
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Online Consultation Across Gujarat</h2>
+                <p>Expert Physiotherapy Available Everywhere via Video Consultation</p>
+            </div>
+            <div class="locations-grid">
+    """
+
+    for name, link in online_pages.items():
+        locations_content += f"""
+                <div class="location-card">
+                    <i class="fas fa-laptop-medical"></i>
+                    <a href="{link}">{name}</a>
+                </div>"""
+
     locations_template_end = """
             </div>
         </div>
