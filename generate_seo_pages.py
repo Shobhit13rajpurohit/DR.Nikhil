@@ -137,7 +137,10 @@ template = """<!DOCTYPE html>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat, India</p>
+                    <p><strong>Dr. Nikhil Rajpurohit (PT)</strong></p>
+                    <p>B.P.T, GPC-21467</p>
+                    <p>Consultant Physiotherapist</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
                     <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
 
                     <h4 class="mt-4">Opening Hours</h4>
@@ -491,7 +494,10 @@ def generate_pages():
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat, India</p>
+                    <p><strong>Dr. Nikhil Rajpurohit (PT)</strong></p>
+                    <p>B.P.T, GPC-21467</p>
+                    <p>Consultant Physiotherapist</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
                     <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
                 </div>
             </div>
