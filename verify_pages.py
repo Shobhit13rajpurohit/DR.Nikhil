@@ -42,6 +42,16 @@ def run():
         page.screenshot(path='/home/jules/verification/gallery_page.png', full_page=True)
         print("Captured gallery.html")
 
+        # Verify Locations
+        page.goto('file:///app/locations.html')
+        page.screenshot(path='/home/jules/verification/locations_page.png', full_page=True)
+        print("Captured locations.html")
+
+        # Verify Online Physio Ahmedabad
+        page.goto('file:///app/online-physiotherapy-ahmedabad.html')
+        page.screenshot(path='/home/jules/verification/online-physio_page.png', full_page=True)
+        print("Captured online-physiotherapy-ahmedabad.html")
+
         browser.close()
 
 if __name__ == "__main__":
