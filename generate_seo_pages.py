@@ -9,8 +9,30 @@ template = """<!DOCTYPE html>
     <meta name="description" content="{meta_description}">
     <meta name="keywords" content="{keywords}">
     <meta name="author" content="Dr. Nikhil Rajpurohit">
+    <link rel="canonical" href="{canonical_url}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{canonical_url}">
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{meta_description}">
+    <meta property="og:image" content="https://www.drnikhilphysio.in/Public/dr.nikhil.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{canonical_url}">
+    <meta property="twitter:title" content="{title}">
+    <meta property="twitter:description" content="{meta_description}">
+    <meta property="twitter:image" content="https://www.drnikhilphysio.in/Public/dr.nikhil.jpeg">
+
     <title>{title}</title>
     <link rel="icon" type="image/jpeg" href="Public/fevicon.jpeg">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -45,7 +67,7 @@ template = """<!DOCTYPE html>
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo"></a>
+                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo" width="150" height="50" loading="lazy"></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Dr. Nikhil</a></li>
@@ -67,7 +89,7 @@ template = """<!DOCTYPE html>
             <h1>Best Physiotherapist in {area_name}, Ahmedabad</h1>
             <p>Expert Pain Relief & Rehabilitation by Dr. Nikhil Rajpurohit</p>
             <div class="mt-4">
-                <a href="contact.html" class="btn btn-primary btn-lg">Book Home Visit in {area_name}</a>
+                <a href="contact.html" class="btn btn-primary btn-lg pulse-btn">Book Home Visit in {area_name}</a>
             </div>
         </div>
     </section>
@@ -100,7 +122,7 @@ template = """<!DOCTYPE html>
                     <div class="mt-5 text-center">
                         <h3>Ready to Live Pain-Free?</h3>
                         <p>Don't let pain control your life. Get world-class physiotherapy right here in {area_name}.</p>
-                        <a href="contact.html" class="btn btn-primary btn-lg">Schedule Your Assessment</a>
+                        <a href="contact.html" class="btn btn-primary btn-lg pulse-btn">Schedule Your Assessment</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +134,7 @@ template = """<!DOCTYPE html>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo">
+                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo" loading="lazy">
                     <p>Providing expert physiotherapy care with a human touch. Dedicated to restoring movement and improving quality of life.</p>
                 </div>
                 <div class="footer-links">
@@ -371,12 +393,14 @@ def generate_pages():
     for area, data in areas_data.items():
         # Create a safe filename
         filename = f"physiotherapist-in-{area.lower().replace(' ', '-').replace('&', 'and')}.html"
+        canonical_url = f"https://www.drnikhilphysio.in/{filename}"
 
         # Fill the template
         page_content = template.format(
             title=data["title"],
             meta_description=data["meta_description"],
             keywords=data["keywords"],
+            canonical_url=canonical_url,
             area_name=area,
             intro_text=data["intro_text"],
             landmark=data["landmark"],
@@ -398,8 +422,15 @@ def generate_pages():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Find expert physiotherapy services across all major areas of Ahmedabad. Dr. Nikhil Rajpurohit offers home visits and clinic care near you.">
     <meta name="keywords" content="Physiotherapist near me, Physiotherapy locations Ahmedabad, Dr. Nikhil Rajpurohit service areas">
+    <link rel="canonical" href="https://www.drnikhilphysio.in/locations.html">
     <title>Areas We Serve - Dr. Nikhil Rajpurohit</title>
     <link rel="icon" type="image/jpeg" href="Public/fevicon.jpeg">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -438,7 +469,7 @@ def generate_pages():
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo"></a>
+                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo" width="150" height="50" loading="lazy"></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Dr. Nikhil</a></li>
@@ -523,7 +554,7 @@ def generate_pages():
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo">
+                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo" loading="lazy">
                     <p>Providing expert physiotherapy care with a human touch. Dedicated to restoring movement and improving quality of life.</p>
                 </div>
                 <div class="footer-links">

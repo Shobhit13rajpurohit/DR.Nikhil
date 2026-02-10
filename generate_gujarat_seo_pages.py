@@ -9,8 +9,30 @@ template = """<!DOCTYPE html>
     <meta name="description" content="{meta_description}">
     <meta name="keywords" content="{keywords}">
     <meta name="author" content="Dr. Nikhil Rajpurohit">
+    <link rel="canonical" href="{canonical_url}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{canonical_url}">
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{meta_description}">
+    <meta property="og:image" content="https://www.drnikhilphysio.in/Public/dr.nikhil.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{canonical_url}">
+    <meta property="twitter:title" content="{title}">
+    <meta property="twitter:description" content="{meta_description}">
+    <meta property="twitter:image" content="https://www.drnikhilphysio.in/Public/dr.nikhil.jpeg">
+
     <title>{title}</title>
     <link rel="icon" type="image/jpeg" href="Public/fevicon.jpeg">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -99,7 +121,7 @@ template = """<!DOCTYPE html>
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo"></a>
+                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo" width="150" height="50" loading="lazy"></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Dr. Nikhil</a></li>
@@ -121,7 +143,7 @@ template = """<!DOCTYPE html>
             <h1>{h1}</h1>
             <p class="lead">Expert Pain Relief & Virtual Rehabilitation across {location}</p>
             <div class="mt-4">
-                <a href="contact.html" class="btn btn-cta">Book Online Consultation</a>
+                <a href="contact.html" class="btn btn-cta pulse-btn">Book Online Consultation</a>
             </div>
         </div>
     </section>
@@ -180,7 +202,7 @@ template = """<!DOCTYPE html>
                     <div class="cta-box">
                         <h2>Start Your Recovery Today</h2>
                         <p>Don't let distance or traffic stop you from getting the best care. Experience professional physiotherapy from the comfort of your home in {location}.</p>
-                        <a href="contact.html" class="btn btn-cta">Schedule Your Video Assessment</a>
+                        <a href="contact.html" class="btn btn-cta pulse-btn">Schedule Your Video Assessment</a>
                     </div>
 
                 </div>
@@ -193,7 +215,7 @@ template = """<!DOCTYPE html>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo">
+                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo" loading="lazy">
                     <p>Providing expert physiotherapy care with a human touch. Dedicated to restoring movement and improving quality of life.</p>
                 </div>
                 <div class="footer-links">
@@ -444,11 +466,15 @@ pages_data = {
 def generate_pages():
     for location, data in pages_data.items():
         # Fill the template
+        filename = data["filename"]
+        canonical_url = f"https://www.drnikhilphysio.in/{filename}"
+
         page_content = template.format(
             title=data["title"],
             h1=data["h1"],
             meta_description=data["meta_description"],
             keywords=data["keywords"],
+            canonical_url=canonical_url,
             location=location,
             intro_content=data["intro_content"],
             why_online_content=data["why_online_content"],
@@ -461,7 +487,6 @@ def generate_pages():
         )
 
         # Write the file
-        filename = data["filename"]
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(page_content)
         print(f"Generated {filename}")
