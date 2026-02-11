@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Initialize Map
-    // Default center India
-    const map = L.map('map').setView([20.5937, 78.9629], 5);
+    // Default center Ahmedabad
+    const map = L.map('map').setView([23.0225, 72.5714], 12);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         // Determine what to display
-        // If no filter, show States and Ahmedabad locations (as "Featured") to avoid 100+ items list
+        // If no filter, show only Ahmedabad locations (as "Home Visit")
         let displayItems = matches;
         if (!normalizedFilter) {
-            displayItems = matches.filter(i => i.type === 'State' || i.parent === 'Ahmedabad');
+            displayItems = matches.filter(i => i.parent === 'Ahmedabad');
         }
 
         displayItems.forEach(item => {
@@ -104,14 +104,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             let badgeText = 'Online Consultation';
             let icon = 'fa-laptop-medical';
 
-            if (item.type.includes('Home Visit') || item.type.includes('Clinic')) {
+            // Only Ahmedabad locations get Home Visit badge
+            if (item.parent === 'Ahmedabad') {
                 badgeClass = 'status-home';
                 badgeText = 'Home Visit Available';
                 icon = 'fa-home';
-            } else if (item.type === 'State') {
-                badgeClass = 'status-online';
-                badgeText = 'Statewide Service';
-                icon = 'fa-map';
             }
 
             li.innerHTML = `
