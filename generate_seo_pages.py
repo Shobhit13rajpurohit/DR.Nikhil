@@ -1,4 +1,5 @@
 import os
+import json
 
 # Define the HTML template
 template = """<!DOCTYPE html>
@@ -203,7 +204,8 @@ areas_data = {
         "landmark": "Gujarat University & Law Garden",
         "landmark_text": "Whether you are a student near Gujarat University suffering from 'text neck' or a professional near C.G. Road dealing with chronic back pain, our services are just a call away. We understand the specific needs of this vibrant community.",
         "why_choose_text": "Residents of Navrangpura choose Dr. Nikhil for his punctuality, professional demeanor, and evidence-based approach. We know that time is valuable for the busy professionals and students in this area. Our home visits are scheduled to fit your routine, minimizing disruption while maximizing recovery.",
-        "common_conditions_text": "In Navrangpura, we frequently treat posture-related issues among students and desk workers, as well as age-related joint pain in the elderly population residing in the classic bungalows of the area."
+        "common_conditions_text": "In Navrangpura, we frequently treat posture-related issues among students and desk workers, as well as age-related joint pain in the elderly population residing in the classic bungalows of the area.",
+        "coordinates": [23.0365, 72.5611]
     },
     "Maninagar": {
         "title": "Physiotherapist in Maninagar, Ahmedabad – Pain Relief & Rehab",
@@ -213,7 +215,8 @@ areas_data = {
         "landmark": "Kankaria Lake & Nagina Wadi",
         "landmark_text": "For the active walkers of Kankaria Lake and the residents around the railway station, we provide targeted therapies. If your morning walk is becoming painful due to knee or heel pain, our expert assessment can identify the root cause.",
         "why_choose_text": "Maninagar residents appreciate our warm, patient-centric approach. Dr. Nikhil is known for his ability to explain complex medical conditions in simple language, empowering patients to take charge of their recovery. Our home visit service in Maninagar is reliable and efficient.",
-        "common_conditions_text": "We see a high volume of knee osteoarthritis cases in Maninagar's senior community, as well as sciatica and lower back pain among the working population commuting to industrial zones."
+        "common_conditions_text": "We see a high volume of knee osteoarthritis cases in Maninagar's senior community, as well as sciatica and lower back pain among the working population commuting to industrial zones.",
+        "coordinates": [23.0039, 72.6046]
     },
     "Satellite": {
         "title": "Top Physiotherapist in Satellite, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -223,17 +226,19 @@ areas_data = {
         "landmark": "ISRO & Star Bazaar",
         "landmark_text": "From the busy streets near Star Bazaar to the residential pockets near ISRO, we cover the entire Satellite area. We bring all necessary equipment to your apartment, ensuring a clinic-like experience without the commute.",
         "why_choose_text": "Satellite's discerning residents demand quality and results. Dr. Nikhil delivers both with his certification in advanced manual therapy and a track record of successful recoveries. We offer flexible evening slots perfect for corporate employees returning from work.",
-        "common_conditions_text": "Our Satellite patients often seek help for 'Corporate Athlete' injuries: chronic neck pain, repetitive strain injuries (RSI), and stress-induced muscle tension. We also provide specialized post-surgical rehab for joint replacements."
+        "common_conditions_text": "Our Satellite patients often seek help for 'Corporate Athlete' injuries: chronic neck pain, repetitive strain injuries (RSI), and stress-induced muscle tension. We also provide specialized post-surgical rehab for joint replacements.",
+        "coordinates": [23.0300, 72.5178]
     },
     "Bopal": {
-        "title": "Best Physiotherapist in Bopal & South Bopal – Dr. Nikhil Rajpurohit",
-        "meta_description": "Leading Physiotherapist in Bopal and South Bopal. Specialized care for back pain, pregnancy rehab, and sports injuries. Home visits available in Bopal, Ahmedabad.",
-        "keywords": "Physiotherapist in Bopal, Physiotherapist in South Bopal, pregnancy physiotherapy Bopal, back pain doctor Bopal, home physio Bopal",
-        "intro_text": "Bopal and South Bopal have rapidly emerged as the new residential hubs for young families and professionals. While the area offers great amenities, the commute to the city center can be long and tiring, often exacerbating back and neck issues. Dr. Nikhil Rajpurohit bridges this gap by bringing top-tier physiotherapy services directly to your home in Bopal.",
-        "landmark": "TRP Mall & Sobo Center",
-        "landmark_text": "Serving the expanding communities around TRP Mall, Sobo Center, and the new residential societies along the ring road. We ensure that quality healthcare is accessible without you having to travel miles into the city.",
-        "why_choose_text": "Families in Bopal choose us for our comprehensive care. From young parents dealing with lifting strains to grandparents needing mobility support, Dr. Nikhil provides holistic care for the whole family. Our punctual home service is a boon for Bopal residents.",
-        "common_conditions_text": "We frequently treat commute-related back pain, sports injuries from weekend cricket/football, and provide pre/post-natal physiotherapy for new mothers in the Bopal area."
+        "title": "Best Physiotherapist in Bopal – Dr. Nikhil Rajpurohit",
+        "meta_description": "Leading Physiotherapist in Bopal. Specialized care for back pain, pregnancy rehab, and sports injuries. Home visits available in Bopal, Ahmedabad.",
+        "keywords": "Physiotherapist in Bopal, pregnancy physiotherapy Bopal, back pain doctor Bopal, home physio Bopal",
+        "intro_text": "Bopal has rapidly emerged as a residential hub for young families and professionals. While the area offers great amenities, the commute to the city center can be long and tiring, often exacerbating back and neck issues. Dr. Nikhil Rajpurohit bridges this gap by bringing top-tier physiotherapy services directly to your home in Bopal.",
+        "landmark": "TRP Mall & Ring Road",
+        "landmark_text": "Serving the expanding communities around TRP Mall and the new residential societies along the ring road. We ensure that quality healthcare is accessible without you having to travel miles into the city.",
+        "why_choose_text": "Families in Bopal choose us for our comprehensive care. From young parents dealing with lifting strains to grandparents needing mobility support, Dr. Nikhil provides holistic care for the whole family.",
+        "common_conditions_text": "We frequently treat commute-related back pain, sports injuries from weekend cricket/football, and provide pre/post-natal physiotherapy for new mothers in the Bopal area.",
+        "coordinates": [23.0353, 72.4665]
     },
     "Gota": {
         "title": "Physiotherapist in Gota, Ahmedabad – Expert Home Visits",
@@ -243,7 +248,8 @@ areas_data = {
         "landmark": "Vandemataram City & SG Highway",
         "landmark_text": "Whether you reside in Vandemataram City, Godrej Garden City, or near the Gota Flyover, our team is equipped to reach you. We understand the specific health challenges of this growing suburb.",
         "why_choose_text": "Gota residents value our commitment to affordable yet premium care. Dr. Nikhil's honest advice and effective treatment plans mean you recover faster and spend less time in pain. We focus on teaching you self-management techniques.",
-        "common_conditions_text": "Common issues in Gota include construction-related occupational injuries, lifestyle ailments like frozen shoulder in the middle-aged population, and post-fracture rehabilitation."
+        "common_conditions_text": "Common issues in Gota include construction-related occupational injuries, lifestyle ailments like frozen shoulder in the middle-aged population, and post-fracture rehabilitation.",
+        "coordinates": [23.1044, 72.5404]
     },
     "Thaltej": {
         "title": "Premium Physiotherapist in Thaltej, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -253,7 +259,8 @@ areas_data = {
         "landmark": "Acropolis Mall & Thaltej Shilaj Road",
         "landmark_text": "Serving the prestigious localities around Thaltej Shilaj Road, Hebatpur, and near Acropolis Mall. We bring the clinic to your living room, ensuring privacy and comfort during your rehabilitation sessions.",
         "why_choose_text": "Dr. Nikhil is the preferred choice in Thaltej for his experience with complex geriatric conditions and chronic pain management. We offer longer session durations and detailed attention that goes beyond standard care.",
-        "common_conditions_text": "We specialize in treating Osteoarthritis, Rheumatoid Arthritis, and balance disorders in seniors. We also manage chronic lifestyle diseases like Fibromyalgia and chronic fatigue for Thaltej residents."
+        "common_conditions_text": "We specialize in treating Osteoarthritis, Rheumatoid Arthritis, and balance disorders in seniors. We also manage chronic lifestyle diseases like Fibromyalgia and chronic fatigue for Thaltej residents.",
+        "coordinates": [23.0497, 72.5173]
     },
     "Vastrapur": {
         "title": "Best Physiotherapist in Vastrapur, Ahmedabad – Sports & Spine Care",
@@ -263,7 +270,8 @@ areas_data = {
         "landmark": "Vastrapur Lake & Alpha One Mall",
         "landmark_text": "Located near the iconic Vastrapur Lake and Alpha One Mall? We are in your neighborhood. We help joggers, gym-goers, and shoppers alike to overcome pain and regain mobility.",
         "why_choose_text": "The young and active population of Vastrapur prefers Dr. Nikhil for his modern, active-rehab approach. We don't just use machines; we use functional training to get you back to the gym or the track safely.",
-        "common_conditions_text": "High incidence of gym-related injuries (rotator cuff strains, lower back spasms), runner's knee, and ankle sprains are what we treat daily in Vastrapur."
+        "common_conditions_text": "High incidence of gym-related injuries (rotator cuff strains, lower back spasms), runner's knee, and ankle sprains are what we treat daily in Vastrapur.",
+        "coordinates": [23.0350, 72.5293]
     },
     "Paldi": {
         "title": "Trusted Physiotherapist in Paldi, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -273,7 +281,8 @@ areas_data = {
         "landmark": "Sanskar Kendra & NID",
         "landmark_text": "Serving the areas around Sanskar Kendra, Mahalaxmi Cross Roads, and Bhatta. We understand the community's needs and provide care that integrates well with your daily routine and values.",
         "why_choose_text": "Paldi residents trust Dr. Nikhil for his ethical practice and proven results. We are particularly skilled in handling post-surgical recovery for joint replacements, a common need in the area's senior demographic.",
-        "common_conditions_text": "Our practice in Paldi sees a lot of frozen shoulder, knee replacement rehabilitation, and neurological cases like stroke recovery or Parkinson's management."
+        "common_conditions_text": "Our practice in Paldi sees a lot of frozen shoulder, knee replacement rehabilitation, and neurological cases like stroke recovery or Parkinson's management.",
+        "coordinates": [23.0112, 72.5630]
     },
     "Naranpura": {
         "title": "Physiotherapist in Naranpura, Ahmedabad – Effective Pain Relief",
@@ -283,7 +292,8 @@ areas_data = {
         "landmark": "Naranpura Crossing & AEC",
         "landmark_text": "Covering the neighborhoods near Naranpura Crossing, AEC, and Parasnagar. We bring professional physiotherapy equipment to your home, ensuring you don't have to travel in pain.",
         "why_choose_text": "Patients in Naranpura appreciate Dr. Nikhil's straightforward, results-oriented approach. We focus on reducing pain quickly and preventing recurrence through education and exercise.",
-        "common_conditions_text": "Common ailments we treat in Naranpura include Cervical Spondylosis (neck pain), Lumbar Spondylosis (back pain), and heel pain (Plantar Fasciitis)."
+        "common_conditions_text": "Common ailments we treat in Naranpura include Cervical Spondylosis (neck pain), Lumbar Spondylosis (back pain), and heel pain (Plantar Fasciitis).",
+        "coordinates": [23.0525, 72.5539]
     },
     "Chandkheda": {
         "title": "Physiotherapist in Chandkheda & Motera – Dr. Nikhil Rajpurohit",
@@ -293,7 +303,8 @@ areas_data = {
         "landmark": "Narendra Modi Stadium & ONGC",
         "landmark_text": "Whether you are near the ONGC colony or the bustling areas around the Stadium, we are here for you. We provide specialized ergonomic advice for office workers and sports rehab for athletes.",
         "why_choose_text": "With a large population of government employees and young professionals, the demand for scientific, evidence-based physio is high. Dr. Nikhil meets this demand with precise diagnoses and effective treatment plans.",
-        "common_conditions_text": "We treat a lot of occupational overuse syndromes (wrist pain, back pain) in ONGC employees, as well as sports injuries like ACL tears and meniscus issues in the local youth."
+        "common_conditions_text": "We treat a lot of occupational overuse syndromes (wrist pain, back pain) in ONGC employees, as well as sports injuries like ACL tears and meniscus issues in the local youth.",
+        "coordinates": [23.1116, 72.5728]
     },
     "Prahlad Nagar": {
         "title": "Best Physiotherapist in Prahlad Nagar, Ahmedabad – Corporate Wellness",
@@ -303,7 +314,8 @@ areas_data = {
         "landmark": "Prahlad Nagar Garden & Corporate Road",
         "landmark_text": "Serving the high-rises along Corporate Road and the residences near Prahlad Nagar Garden. We offer flexible scheduling to fit into your pre-office or post-office hours.",
         "why_choose_text": "Professionals in Prahlad Nagar choose us because we understand the mechanics of desk work. We don't just treat the pain; we assess your workstation and posture to prevent it from coming back.",
-        "common_conditions_text": "Our Prahlad Nagar clinic (home visits) specializes in 'Tech Neck', lower back pain from prolonged sitting, and carpal tunnel syndrome."
+        "common_conditions_text": "Our Prahlad Nagar clinic (home visits) specializes in 'Tech Neck', lower back pain from prolonged sitting, and carpal tunnel syndrome.",
+        "coordinates": [23.0120, 72.5108]
     },
     "Isanpur": {
         "title": "Physiotherapist in Isanpur, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -313,7 +325,8 @@ areas_data = {
         "landmark": "Isanpur Highway & Govindwadi",
         "landmark_text": "We cover the entire Isanpur area, from the highway to the internal residential societies. Our goal is to ensure that quality healthcare reaches every corner of Ahmedabad.",
         "why_choose_text": "Isanpur residents value Dr. Nikhil's honest and effective treatment methods. We focus on manual therapy and exercises that can be easily done at home, reducing the need for expensive equipment.",
-        "common_conditions_text": "We frequently treat heavy-lifting injuries, shoulder strain, and chronic knee pain in Isanpur. Neurological rehabilitation for stroke survivors is also a key service here."
+        "common_conditions_text": "We frequently treat heavy-lifting injuries, shoulder strain, and chronic knee pain in Isanpur. Neurological rehabilitation for stroke survivors is also a key service here.",
+        "coordinates": [22.9774, 72.5977]
     },
     "Shahibaug": {
         "title": "Physiotherapist in Shahibaug, Ahmedabad – Elite Care",
@@ -323,7 +336,8 @@ areas_data = {
         "landmark": "Riverfront & Circuit House",
         "landmark_text": "Serving the serene localities near the Circuit House and the active walkers of the Riverfront. We help you maintain your mobility so you can continue to enjoy the beautiful surroundings.",
         "why_choose_text": "Dr. Nikhil's professional and discreet service is highly valued in Shahibaug. We provide comprehensive care that addresses not just the symptoms but the overall well-being of the patient.",
-        "common_conditions_text": "We treat many walkers and runners for shin splints and knee pain. We also manage age-related arthritis and provide post-surgical care for joint replacements."
+        "common_conditions_text": "We treat many walkers and runners for shin splints and knee pain. We also manage age-related arthritis and provide post-surgical care for joint replacements.",
+        "coordinates": [23.0569, 72.5947]
     },
     "Ranip": {
         "title": "Physiotherapist in Ranip & New Ranip – Dr. Nikhil Rajpurohit",
@@ -333,7 +347,8 @@ areas_data = {
         "landmark": "GST Crossing & Railway Museum",
         "landmark_text": "Covering the areas near GST Crossing and New Ranip. We bring the clinic to your doorstep, saving you the hassle of commuting in traffic while in pain.",
         "why_choose_text": "Residents of Ranip appreciate our practical and effective approach to pain relief. Dr. Nikhil creates customized exercise plans that fit into your daily routine.",
-        "common_conditions_text": "Common issues in Ranip include commuter-related back pain, cervical issues from two-wheeler driving, and general geriatric mobility problems."
+        "common_conditions_text": "Common issues in Ranip include commuter-related back pain, cervical issues from two-wheeler driving, and general geriatric mobility problems.",
+        "coordinates": [23.0784, 72.5714]
     },
     "Nikol": {
         "title": "Physiotherapist in Nikol, Ahmedabad – Advanced Rehab",
@@ -343,7 +358,8 @@ areas_data = {
         "landmark": "Nikol Naroda Road & Raspan Cross Road",
         "landmark_text": "We serve the bustling neighborhoods around Raspan Cross Road and Nikol Gam. Our home visits ensure that you get expert care without taking too much time off work.",
         "why_choose_text": "Nikol residents trust Dr. Nikhil for his understanding of occupational hazards. We provide specific exercises to counteract the strain of repetitive work.",
-        "common_conditions_text": "We see a high prevalence of 'Diamond Polisher's Neck' (cervical pain), frozen shoulder, and repetitive strain injuries in Nikol."
+        "common_conditions_text": "We see a high prevalence of 'Diamond Polisher's Neck' (cervical pain), frozen shoulder, and repetitive strain injuries in Nikol.",
+        "coordinates": [23.0401, 72.6711]
     },
     "Odhav": {
         "title": "Physiotherapist in Odhav, Ahmedabad – Industrial Rehab",
@@ -353,7 +369,8 @@ areas_data = {
         "landmark": "GIDC & Odhav Ring Road",
         "landmark_text": "Serving the residential pockets near GIDC and Odhav Ring Road. We understand that physical fitness is your livelihood, and we aim to get you back to work safely and quickly.",
         "why_choose_text": "We offer robust rehabilitation plans that focus on strength and endurance. Dr. Nikhil's guidance helps prevent future injuries, which is crucial for the hardworking people of Odhav.",
-        "common_conditions_text": "We treat lumbar strain (lifting injuries), slip discs, and chronic joint stiffness in the Odhav population."
+        "common_conditions_text": "We treat lumbar strain (lifting injuries), slip discs, and chronic joint stiffness in the Odhav population.",
+        "coordinates": [23.0244, 72.6586]
     },
     "Ellis Bridge": {
         "title": "Physiotherapist in Ellis Bridge, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -363,7 +380,8 @@ areas_data = {
         "landmark": "VS Hospital & MJ Library",
         "landmark_text": "Serving the prestigious lanes near MJ Library and the residential colonies behind VS Hospital. We bring modern physiotherapy techniques to your heritage homes.",
         "why_choose_text": "Dr. Nikhil is preferred in Ellis Bridge for his blend of traditional patient care values and modern medical knowledge. We take the time to listen and treat the person, not just the pain.",
-        "common_conditions_text": "We manage a lot of geriatric conditions here, including Parkinson's disease, balance issues, and general debility, helping seniors maintain their independence."
+        "common_conditions_text": "We manage a lot of geriatric conditions here, including Parkinson's disease, balance issues, and general debility, helping seniors maintain their independence.",
+        "coordinates": [23.0233, 72.5714]
     },
     "Law Garden": {
         "title": "Physiotherapist near Law Garden, Ahmedabad – Dr. Nikhil Rajpurohit",
@@ -373,7 +391,8 @@ areas_data = {
         "landmark": "Law Garden & NCC Ground",
         "landmark_text": "Whether you injured your knee jogging at the track or have back pain from long shopping sprees, we are right around the corner. We offer home visits to the apartments surrounding this green lung.",
         "why_choose_text": "Fitness enthusiasts choose Dr. Nikhil because he understands the biomechanics of running and exercise. We help you correct your form and recover without giving up your passion.",
-        "common_conditions_text": "Runner's knee, plantar fasciitis (heel pain), and shin splints are very common among our patients from the Law Garden area."
+        "common_conditions_text": "Runner's knee, plantar fasciitis (heel pain), and shin splints are very common among our patients from the Law Garden area.",
+        "coordinates": [23.0264, 72.5576]
     },
      "Motera": {
         "title": "Physiotherapist in Motera, Ahmedabad – Sports & Spine Specialist",
@@ -383,7 +402,118 @@ areas_data = {
         "landmark": "Narendra Modi Stadium & Visat",
         "landmark_text": "Serving the vibrant communities from Visat to the Stadium road. We provide elite sports rehabilitation protocols used by professional athletes to the residents of Motera.",
         "why_choose_text": "Dr. Nikhil's expertise in sports injuries makes him the top choice in Motera. Whether you play tennis, cricket, or just want to stay fit, we help you move better and pain-free.",
-        "common_conditions_text": "ACL injuries, rotator cuff tears, and tennis elbow are frequently treated here, along with lifestyle-related back pain."
+        "common_conditions_text": "ACL injuries, rotator cuff tears, and tennis elbow are frequently treated here, along with lifestyle-related back pain.",
+        "coordinates": [23.1024, 72.5941]
+    },
+    "Bodakdev": {
+        "title": "Best Physiotherapist in Bodakdev, Ahmedabad – Premium Care",
+        "meta_description": "Top-rated Physiotherapist in Bodakdev. Dr. Nikhil Rajpurohit offers luxury home visits for elite residents. Specialist in spine care and post-op rehab.",
+        "keywords": "Physiotherapist in Bodakdev, Bodakdev physiotherapy, premium physio Ahmedabad, Dr. Nikhil Rajpurohit Bodakdev",
+        "intro_text": "Bodakdev represents the pinnacle of premium living in Ahmedabad. With its upscale residences and serene environment, it demands a healthcare service that matches its standards. Dr. Nikhil Rajpurohit provides exclusive, discreet, and world-class physiotherapy services tailored for the elite residents of Bodakdev.",
+        "landmark": "Rajpath Club & SG Highway",
+        "landmark_text": "Serving the prestigious societies near Rajpath Club and the Judges Bungalow Road. We bring the clinic to your luxury apartment or bungalow, ensuring maximum privacy and comfort.",
+        "why_choose_text": "Residents of Bodakdev choose Dr. Nikhil for his high-touch, personalized service. We understand the value of your time and offer flexible, punctually managed appointments.",
+        "common_conditions_text": "We specialize in lifestyle management for high-net-worth individuals, treating chronic neck pain, stress-induced muscle tension, and geriatric mobility maintenance.",
+        "coordinates": [23.0387, 72.5118]
+    },
+    "Ambli": {
+        "title": "Physiotherapist in Ambli & Bopal-Ambli Road – Luxury Rehab",
+        "meta_description": "Exclusive Physiotherapy in Ambli. Expert care for golf injuries and chronic pain. Home visits by Dr. Nikhil Rajpurohit in Ambli, Ahmedabad.",
+        "keywords": "Physiotherapist in Ambli, Ambli Road physio, luxury physiotherapy Ahmedabad, golf injury rehab Ambli",
+        "intro_text": "Ambli is home to some of Ahmedabad's most luxurious villas and greenest landscapes. For the residents of this tranquil area, health is wealth. Dr. Nikhil Rajpurohit offers bespoke physiotherapy packages designed to maintain your active and pain-free lifestyle in the lap of luxury.",
+        "landmark": "Ambli Lake & BRTS",
+        "landmark_text": "Covering the exclusive residential pockets near Ambli Lake and Iscon-Ambli Road. Our service is designed to be unobtrusive and highly effective, fitting seamlessly into your day.",
+        "why_choose_text": "Ambli's residents value expertise and results. Dr. Nikhil brings international standards of care to your doorstep, using advanced manual therapy techniques.",
+        "common_conditions_text": "We treat many recreational athletes here, specifically for golf-related injuries (Golfer's Elbow, back strain) and tennis injuries.",
+        "coordinates": [23.0279, 72.4883]
+    },
+    "Science City": {
+        "title": "Physiotherapist in Science City, Ahmedabad – Modern Care",
+        "meta_description": "Best Physiotherapist in Science City. Advanced rehab for tech professionals and families. Home visits by Dr. Nikhil Rajpurohit.",
+        "keywords": "Physiotherapist in Science City, Science City Road physio, modern rehab Ahmedabad, Dr. Nikhil Rajpurohit",
+        "intro_text": "Science City is the symbol of modern, progressive Ahmedabad. The area attracts forward-thinking families and professionals who value scientific approaches to life and health. Dr. Nikhil Rajpurohit aligns with this ethos by providing evidence-based, modern physiotherapy treatments.",
+        "landmark": "Science City & CIMS Hospital",
+        "landmark_text": "Serving the modern high-rises along Science City Road and near CIMS Hospital. We bring advanced therapeutic exercises and ergonomic assessments to your home.",
+        "why_choose_text": "Residents here appreciate the logical, scientific explanation of their conditions. Dr. Nikhil educates you on the 'why' and 'how' of your recovery, empowering you with knowledge.",
+        "common_conditions_text": "We see a mix of 'Tech Neck' from IT professionals and general orthopedic conditions in the families residing here.",
+        "coordinates": [23.0740, 72.4925]
+    },
+    "Shilaj": {
+        "title": "Physiotherapist in Shilaj, Ahmedabad – Peaceful Recovery",
+        "meta_description": "Physiotherapist in Shilaj. Gentle and effective care for seniors and families. Home visits available in Shilaj, Ahmedabad.",
+        "keywords": "Physiotherapist in Shilaj, Shilaj physiotherapy, home visit doctor Shilaj, elder care physio Shilaj",
+        "intro_text": "Shilaj offers a peaceful retreat from the city's chaos, making it a preferred location for spacious living. Dr. Nikhil Rajpurohit enhances this peaceful living by ensuring that pain doesn't disturb your tranquility. We bring compassionate, unhurried care to the residents of Shilaj.",
+        "landmark": "Shilaj Rancharda Road",
+        "landmark_text": "Serving the gated communities and bungalows along Shilaj Road. We provide a calm, healing presence in your home to aid your recovery.",
+        "why_choose_text": "The community in Shilaj values personal relationships and trust. Dr. Nikhil builds long-term associations with families, caring for multiple generations.",
+        "common_conditions_text": "Geriatric rehabilitation is a key focus here, helping seniors maintain balance and mobility. We also treat gardening-related strains and general back pain.",
+        "coordinates": [23.0531, 72.4763]
+    },
+    "South Bopal": {
+        "title": "Physiotherapist in South Bopal, Ahmedabad – Family Care",
+        "meta_description": "Top Physiotherapist in South Bopal. Caring for young families and seniors. Expert home visits by Dr. Nikhil Rajpurohit.",
+        "keywords": "Physiotherapist in South Bopal, Sobo Center physio, family physiotherapist Ahmedabad, Dr. Nikhil Rajpurohit",
+        "intro_text": "South Bopal is a vibrant, family-centric area buzzing with energy. With young parents and active grandparents, the healthcare needs are diverse. Dr. Nikhil Rajpurohit offers versatile physiotherapy services that cater to every member of the family in South Bopal.",
+        "landmark": "Gala Gymkhana & Sobo Center",
+        "landmark_text": "From the apartments near Gala Gymkhana to the busy Sobo Center area, we are your neighborhood physio. We make healthcare accessible and convenient for busy families.",
+        "why_choose_text": "South Bopal residents love our friendly, approachable style. We make physiotherapy fun for kids and comforting for seniors.",
+        "common_conditions_text": "We treat post-pregnancy back pain, pediatric orthopedic issues, and knee pain in the elderly population of South Bopal.",
+        "coordinates": [23.0232, 72.4633]
+    },
+    "SG Highway": {
+        "title": "Physiotherapist on SG Highway, Ahmedabad – Rapid Relief",
+        "meta_description": "Physiotherapist on SG Highway. Fast relief for busy professionals and shoppers. Home visits along Sarkhej-Gandhinagar Highway.",
+        "keywords": "Physiotherapist on SG Highway, corporate physio SG Highway, back pain treatment SG Highway, Dr. Nikhil Rajpurohit",
+        "intro_text": "Sarkhej-Gandhinagar (SG) Highway is the artery of modern Ahmedabad, lined with corporate parks and malls. The fast life here leaves little time for pain. Dr. Nikhil Rajpurohit offers efficient, results-driven physiotherapy for the busy individuals living and working along the SG Highway.",
+        "landmark": "Karnavati Club & YMCA",
+        "landmark_text": "Covering the residential clusters near Karnavati Club, YMCA, and the various corporate parks. We fit into your tight schedule to keep you moving.",
+        "why_choose_text": "Time is money on SG Highway. Dr. Nikhil focuses on rapid recovery protocols and ergonomic interventions to prevent work-related downtime.",
+        "common_conditions_text": "We specialize in treating acute back spasms, sciatica from driving/sitting, and stress headaches.",
+        "coordinates": [23.0335, 72.5074]
+    },
+    "Gurukul": {
+        "title": "Physiotherapist in Gurukul, Ahmedabad – Trusted Care",
+        "meta_description": "Reliable Physiotherapist in Gurukul. Expert care for students and seniors. Home visits near Drive-In Road.",
+        "keywords": "Physiotherapist in Gurukul, Drive-In Road physio, student posture correction, Dr. Nikhil Rajpurohit",
+        "intro_text": "Gurukul is a blend of educational excellence and residential calm. With many schools and old residential colonies, it has a unique demographic. Dr. Nikhil Rajpurohit provides trusted physiotherapy care, understanding the needs of both the young students and the elderly residents of Gurukul.",
+        "landmark": "Drive-In Cinema & Himalaya Mall",
+        "landmark_text": "Serving the lanes around Drive-In Road and Gurukul Road. We bring professional care to your doorstep, ensuring safety and comfort.",
+        "why_choose_text": "Gurukul residents value tradition and reliability. Dr. Nikhil's consistent, high-quality care has earned the trust of many families in the area.",
+        "common_conditions_text": "We treat 'Student Syndrome' (neck/back pain from studying), as well as osteoarthritis and frozen shoulder in the senior residents.",
+        "coordinates": [23.0450, 72.5350]
+    },
+    "Ambawadi": {
+        "title": "Physiotherapist in Ambawadi, Ahmedabad – Boutique Care",
+        "meta_description": "Exclusive Physiotherapist in Ambawadi. Personalized care for the discerning patient. Home visits in Ambawadi, Ahmedabad.",
+        "keywords": "Physiotherapist in Ambawadi, boutique physiotherapy Ahmedabad, private physio Ambawadi, Dr. Nikhil Rajpurohit",
+        "intro_text": "Ambawadi exudes an old-world charm mixed with modern boutique living. It is home to many of Ahmedabad's established families. Dr. Nikhil Rajpurohit provides respectful, high-quality physiotherapy that aligns with the sophisticated and private nature of Ambawadi's residents.",
+        "landmark": "Parimal Garden & Central Mall",
+        "landmark_text": "Serving the leafy avenues near Parimal Garden and the Polytechnic area. We provide a discreet, premium service in the comfort of your home.",
+        "why_choose_text": "Dr. Nikhil is preferred for his polished bedside manner and depth of clinical knowledge. We offer a level of care that respects the privacy and dignity of our patients.",
+        "common_conditions_text": "We manage chronic pain conditions, post-surgical rehabilitation, and general wellness maintenance for the senior residents.",
+        "coordinates": [23.0231, 72.5441]
+    },
+    "C G Road": {
+        "title": "Physiotherapist on C G Road, Ahmedabad – City Center Care",
+        "meta_description": "Physiotherapist near C G Road. Convenient care for shoppers and residents. Home visits by Dr. Nikhil Rajpurohit.",
+        "keywords": "Physiotherapist C G Road, central Ahmedabad physio, shopping district physio, Dr. Nikhil Rajpurohit",
+        "intro_text": "C G Road is the commercial heart of the city, but nestled behind the shops are historic residential colonies. Dr. Nikhil Rajpurohit serves this central district, ensuring that the residents who have seen the city grow stay healthy and active.",
+        "landmark": "Municipal Market & Law Garden",
+        "landmark_text": "Serving the residential lanes off C G Road and near the Municipal Market. We bring modern medical care to the heart of the city.",
+        "why_choose_text": "Residents here appreciate the convenience and accessibility of our service. We are quick to respond and effective in our treatments.",
+        "common_conditions_text": "We treat a variety of conditions from knee pain in walkers to back pain in shop owners and office workers.",
+        "coordinates": [23.0333, 72.5570]
+    },
+    "Sindhu Bhavan Road": {
+        "title": "Physiotherapist on Sindhu Bhavan Road – Elite Performance",
+        "meta_description": "Top Physiotherapist on Sindhu Bhavan Road. Performance rehab for the active elite. Home visits by Dr. Nikhil Rajpurohit.",
+        "keywords": "Physiotherapist Sindhu Bhavan Road, SBR physio, elite sports rehab Ahmedabad, Dr. Nikhil Rajpurohit",
+        "intro_text": "Sindhu Bhavan Road (SBR) is the new face of affluent Ahmedabad, known for its cafes, gyms, and nightlife. The lifestyle here is fast and fitness-oriented. Dr. Nikhil Rajpurohit matches this pace with high-performance physiotherapy designed to keep you at the top of your game.",
+        "landmark": "Taj Skyline & Gotila Garden",
+        "landmark_text": "Serving the premium apartments and workspaces along SBR. We bring sports-medicine level care to your home gym or living room.",
+        "why_choose_text": "The crowd on SBR demands the best. Dr. Nikhil uses advanced assessment tools and functional training to deliver results that you can feel and see.",
+        "common_conditions_text": "We treat gym injuries, CrossFit strains, and provide recovery sessions for marathon runners and cyclists.",
+        "coordinates": [23.0375, 72.5039]
     }
 }
 
@@ -415,7 +545,10 @@ def generate_pages():
         print(f"Generated {filename}")
 
     # 2. Generate locations.html (Hub Page)
-    locations_template_start = """<!DOCTYPE html>
+    # Prepare JSON data for locations
+    locations_json = json.dumps(areas_data)
+
+    locations_template = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -433,36 +566,106 @@ def generate_pages():
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <style>
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .location-card {
+        /* New Styles for Locations Page */
+        .locations-wrapper {{
+            display: flex;
+            height: calc(100vh - 80px); /* Adjust based on header height */
+            margin-top: 80px; /* Adjust based on header height */
+            position: relative;
+        }}
+        .locations-sidebar {{
+            width: 350px;
             background: #fff;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+        }}
+        .locations-map {{
+            flex: 1;
+            background: #e5e3df; /* Map placeholder color */
+            position: relative;
+            z-index: 1;
+        }}
+        .sidebar-header {{
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .location-card:hover {
-            transform: translateY(-5px);
-        }
-        .location-card a {
-            text-decoration: none;
+            background: #003366;
+            color: white;
+        }}
+        .sidebar-header h3 {{
+            color: white !important;
+            margin: 0;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }}
+        .search-box {{
+            position: relative;
+            margin-top: 15px;
+        }}
+        .search-box input {{
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: #333;
+        }}
+        .location-list {{
+            padding: 0;
+            flex: 1;
+            list-style: none;
+            margin: 0;
+        }}
+        .location-item {{
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+        }}
+        .location-item:hover, .location-item.active {{
+            background: #f0f8ff;
+            border-left: 4px solid #00A86B;
+        }}
+        .location-item h4 {{
+            margin: 0 0 5px;
             color: #003366;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .location-card i {
-            font-size: 2rem;
-            color: #00A86B;
-            margin-bottom: 15px;
-            display: block;
-        }
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }}
+        .status-badge {{
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }}
+        .status-home {{ background: #d4edda; color: #155724; }}
+        .status-online {{ background: #cce5ff; color: #004085; }}
+        .status-soon {{ background: #fff3cd; color: #856404; }}
+
+        /* Responsive */
+        @media (max-width: 768px) {{
+            .locations-wrapper {{
+                flex-direction: column;
+                height: auto;
+                margin-top: 60px;
+            }}
+            .locations-sidebar {{
+                width: 100%;
+                height: 50vh;
+                order: 2; /* Map first on mobile? Or list first? User said list/search first */
+                order: 1;
+            }}
+            .locations-map {{
+                height: 50vh;
+                order: 2;
+            }}
+        }}
     </style>
 </head>
 <body>
@@ -483,72 +686,20 @@ def generate_pages():
         </div>
     </header>
 
-    <section class="page-header section-padding bg-light">
-        <div class="container text-center">
-            <h1>Areas We Serve in Ahmedabad</h1>
-            <p>Bringing World-Class Physiotherapy to Your Doorstep</p>
-        </div>
-    </section>
-
-    <section class="section-padding">
-        <div class="container">
-            <div class="locations-grid">
-"""
-
-    locations_content = ""
-    for area in sorted(areas_data.keys()):
-        link = f"physiotherapist-in-{area.lower().replace(' ', '-').replace('&', 'and')}.html"
-        locations_content += f"""
-                <div class="location-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="{link}">Physiotherapist in {area}</a>
-                </div>"""
-
-    # Online Consultations Section
-    online_pages = {
-        "Gujarat (State Wide)": "best-physiotherapist-gujarat.html",
-        "Ahmedabad (Online)": "online-physiotherapy-ahmedabad.html",
-        "Surat": "online-physiotherapy-surat.html",
-        "Vadodara": "online-physiotherapy-vadodara.html",
-        "Rajkot": "online-physiotherapy-rajkot.html",
-        "Gandhinagar": "online-physiotherapy-gandhinagar.html",
-        "Bhavnagar": "online-physiotherapy-bhavnagar.html",
-        "Jamnagar": "online-physiotherapy-jamnagar.html",
-        "Junagadh": "online-physiotherapy-junagadh.html",
-        "Anand": "online-physiotherapy-anand.html",
-        "Nadiad": "online-physiotherapy-nadiad.html",
-        "Mehsana": "online-physiotherapy-mehsana.html",
-        "Morbi": "online-physiotherapy-morbi.html",
-        "Bharuch": "online-physiotherapy-bharuch.html",
-        "Vapi": "online-physiotherapy-vapi.html",
-        "Navsari": "online-physiotherapy-navsari.html"
-    }
-
-    locations_content += """
+    <div class="locations-wrapper">
+        <aside class="locations-sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-map-marked-alt"></i> Find Your Physio</h3>
+                <div class="search-box">
+                    <input type="text" id="locationSearch" placeholder="Search area (e.g. Bopal, Satellite)...">
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2>Online Consultation Across Gujarat</h2>
-                <p>Expert Physiotherapy Available Everywhere via Video Consultation</p>
-            </div>
-            <div class="locations-grid">
-    """
-
-    for name, link in online_pages.items():
-        locations_content += f"""
-                <div class="location-card">
-                    <i class="fas fa-laptop-medical"></i>
-                    <a href="{link}">{name}</a>
-                </div>"""
-
-    locations_template_end = """
-            </div>
-        </div>
-    </section>
+            <ul id="locationsList" class="location-list">
+                <!-- Dynamic List Items -->
+            </ul>
+        </aside>
+        <main id="map" class="locations-map"></main>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -606,12 +757,17 @@ def generate_pages():
     </footer>
     <script src="js/main.js"></script>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        window.locationsData = {locations_json};
+    </script>
+    <script src="js/locations-page.js"></script>
 </body>
 </html>
 """
 
     with open('locations.html', 'w', encoding='utf-8') as f:
-        f.write(locations_template_start + locations_content + locations_template_end)
+        f.write(locations_template)
     print("Generated locations.html")
 
 if __name__ == "__main__":
