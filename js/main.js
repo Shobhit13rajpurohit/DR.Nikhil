@@ -115,4 +115,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.5 });
         statsObserver.observe(statsSection);
     }
+
+    // ==========================================
+    // Locations Page Logic
+    // ==========================================
+
+    // 1. Search Functionality
+    const searchInput = document.getElementById('locationSearch');
+    const searchBtn = document.getElementById('searchBtn');
+
+    if (searchInput) {
+        const locationCards = document.querySelectorAll('.location-card');
+
+        const performSearch = () => {
+            const query = searchInput.value.toLowerCase().trim();
+
+            locationCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        searchInput.addEventListener('input', performSearch);
+        if (searchBtn) {
+            searchBtn.addEventListener('click', performSearch);
+        }
+    }
+
+    // 2. Interactive Map Logic
+    const stateTiles = document.querySelectorAll('.state-tile');
+    const serviceStatus = document.getElementById('serviceStatus');
+
+    if (stateTiles.length > 0 && serviceStatus) {
+        stateTiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                // Remove active class from all
+                stateTiles.forEach(t => t.classList.remove('active'));
+
+                // Add active to clicked
+                tile.classList.add('active');
+
+                // Get data
+                const stateName = tile.getAttribute('data-state');
+                const linkUrl = tile.getAttribute('data-link');
+                const isGujarat = stateName === 'Gujarat';
+
+                // Update Status Panel
+                serviceStatus.innerHTML = `
+                    <h4>${stateName}</h4>
+                    <p class="mb-2"><strong>Service Availability:</strong></p>
+                    <div class="status-indicators mb-4">
+                        ${isGujarat ?
+                            `<div class="indicator home"><i class="fas fa-home"></i> Home Visits Available (Ahmedabad)</div>
+                             <div class="indicator online"><i class="fas fa-laptop-medical"></i> Online Consultation Available</div>`
+                            :
+                            `<div class="indicator online"><i class="fas fa-laptop-medical"></i> Online Consultation Available</div>`
+                        }
+                    </div>
+                    <a href="${linkUrl}" class="btn btn-primary btn-sm">View Details & Book <i class="fas fa-arrow-right ml-2"></i></a>
+                `;
+
+                // Add fade-in animation class to new content
+                serviceStatus.classList.remove('fade-in');
+                void serviceStatus.offsetWidth; // trigger reflow
+                serviceStatus.classList.add('fade-in');
+            });
+        });
+    }
 });

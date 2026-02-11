@@ -717,6 +717,247 @@ p {
     transform: translateY(0);
 }
 
+/* ==========================================================================
+   Search & Interactive Map Styles
+   ========================================================================== */
+
+/* Search Section */
+.search-map-section {
+    position: relative;
+    z-index: 10;
+}
+
+.search-container {
+    margin-bottom: 40px;
+}
+
+.search-box {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    background: white;
+    transition: var(--transition);
+}
+
+.search-box:focus-within {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+}
+
+.search-box button {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 0 35px;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.search-box button:hover {
+    background: linear-gradient(135deg, #004494 0%, #003366 100%);
+}
+
+/* Map Container */
+.interactive-map-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .map-wrapper {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+/* Status Panel */
+.status-panel {
+    flex: 1;
+    background: #f8fbff;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.status-panel h4 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.status-panel p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.status-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.indicator:hover {
+    transform: translateX(5px);
+}
+
+.indicator i {
+    font-size: 1.2rem;
+}
+
+.indicator.home i { color: var(--secondary-color); }
+.indicator.online i { color: var(--primary-color); }
+
+/* Stylized Grid Map */
+.india-map-grid {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+}
+
+.state-tile {
+    width: 60px;
+    height: 60px;
+    background: #f0f4f8;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    user-select: none;
+}
+
+.state-tile:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: white;
+    z-index: 10;
+}
+
+.state-tile.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+    z-index: 5;
+}
+
+/* Specific Style for Gujarat */
+.state-tile.highlight-gujarat {
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+    width: 140px; /* Distinct width */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 15px rgba(0, 168, 107, 0.3);
+    order: -1; /* Place at start or manipulate via flex order if needed, but here kept generic */
+}
+
+@media (min-width: 500px) {
+    /* Center visually in the "map" flow */
+    .state-tile.highlight-gujarat {
+         /* Let it flow naturally but stand out */
+         order: 0;
+    }
+}
+
+.state-tile.highlight-gujarat:hover,
+.state-tile.highlight-gujarat.active {
+    background: linear-gradient(135deg, #009058 0%, #007a4b 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 168, 107, 0.4);
+}
+
+/* Mobile Adjustments for Map */
+@media (max-width: 480px) {
+    .india-map-grid {
+        gap: 8px;
+    }
+    .state-tile {
+        width: 50px;
+        height: 50px;
+        font-size: 0.75rem;
+    }
+    .state-tile.highlight-gujarat {
+        width: 100%; /* Full width banner on mobile map */
+        height: 50px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}
+
 /* New Components */
 .glass-card {
     background: rgba(255, 255, 255, 0.95);

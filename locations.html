@@ -68,13 +68,80 @@
 
     <section class="page-header section-padding bg-light">
         <div class="container text-center">
-            <h1>Areas We Serve in Ahmedabad</h1>
+            <h1>Areas We Serve</h1>
             <p>Bringing World-Class Physiotherapy to Your Doorstep</p>
+        </div>
+    </section>
+
+    <section class="section-padding search-map-section">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container text-center mb-5">
+                <div class="search-box">
+                    <input type="text" id="locationSearch" placeholder="Search for your city, state or area (e.g., Bopal, Jaipur, Gujarat)..." aria-label="Search locations">
+                    <button id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Interactive Map Area -->
+            <div class="interactive-map-container">
+                <div class="map-header text-center mb-4">
+                    <h3>Service Availability Map</h3>
+                    <p>Select a region to see service details</p>
+                </div>
+
+                <div class="map-wrapper">
+                    <!-- Status Panel -->
+                    <div id="serviceStatus" class="status-panel">
+                        <h4>Select a Region</h4>
+                        <p>Click on the map to see availability.</p>
+                        <div class="status-indicators mt-3">
+                            <span class="indicator home"><i class="fas fa-home"></i> Home Visit</span>
+                            <span class="indicator online"><i class="fas fa-laptop-medical"></i> Online Consultation</span>
+                        </div>
+                    </div>
+
+                    <!-- Stylized Grid Map -->
+                    <div class="india-map-grid">
+                        <!-- North -->
+                        <div class="state-tile" data-state="Jammu & Kashmir" data-link="online-physiotherapist-jammu-kashmir.html">J&K</div>
+                        <div class="state-tile" data-state="Himachal Pradesh" data-link="online-physiotherapist-himachal-pradesh.html">HP</div>
+                        <div class="state-tile" data-state="Punjab" data-link="online-physiotherapist-punjab.html">PB</div>
+                        <div class="state-tile" data-state="Uttarakhand" data-link="online-physiotherapist-uttarakhand.html">UK</div>
+                        <div class="state-tile" data-state="Haryana" data-link="online-physiotherapist-haryana.html">HR</div>
+                        <div class="state-tile" data-state="Delhi" data-link="online-physiotherapist-delhi.html">DL</div>
+
+                        <!-- West & Central -->
+                        <div class="state-tile" data-state="Rajasthan" data-link="physiotherapist-in-jaipur.html">RJ</div>
+                        <div class="state-tile highlight-gujarat" data-state="Gujarat" data-link="best-physiotherapist-gujarat.html" id="gujaratTile">GUJARAT</div>
+                        <div class="state-tile" data-state="Madhya Pradesh" data-link="online-physiotherapist-madhya-pradesh.html">MP</div>
+                        <div class="state-tile" data-state="Chhattisgarh" data-link="online-physiotherapist-chhattisgarh.html">CG</div>
+
+                        <!-- East -->
+                        <div class="state-tile" data-state="Uttar Pradesh" data-link="online-physiotherapist-uttar-pradesh.html">UP</div>
+                        <div class="state-tile" data-state="Bihar" data-link="online-physiotherapist-bihar.html">BR</div>
+                        <div class="state-tile" data-state="Jharkhand" data-link="online-physiotherapist-jharkhand.html">JH</div>
+                        <div class="state-tile" data-state="West Bengal" data-link="online-physiotherapist-west-bengal.html">WB</div>
+                        <div class="state-tile" data-state="Odisha" data-link="online-physiotherapist-odisha.html">OD</div>
+                        <div class="state-tile" data-state="North East India" data-link="online-physiotherapist-assam.html">NE</div>
+
+                        <!-- South -->
+                        <div class="state-tile" data-state="Maharashtra" data-link="online-physiotherapist-maharashtra.html">MH</div>
+                        <div class="state-tile" data-state="Telangana" data-link="online-physiotherapist-telangana.html">TL</div>
+                        <div class="state-tile" data-state="Andhra Pradesh" data-link="online-physiotherapist-andhra-pradesh.html">AP</div>
+                        <div class="state-tile" data-state="Karnataka" data-link="online-physiotherapist-karnataka.html">KA</div>
+                        <div class="state-tile" data-state="Goa" data-link="online-physiotherapist-goa.html">GOA</div>
+                        <div class="state-tile" data-state="Kerala" data-link="online-physiotherapist-kerala.html">KL</div>
+                        <div class="state-tile" data-state="Tamil Nadu" data-link="online-physiotherapist-tamil-nadu.html">TN</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="section-padding">
         <div class="container">
+            <h2 class="text-center mb-4">Ahmedabad Locations (Home Visits)</h2>
             <div class="locations-grid">
 
                 <div class="location-card">
