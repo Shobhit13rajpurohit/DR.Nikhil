@@ -358,6 +358,11 @@ def create_page(location, is_tehsil=False):
         </div>
     </section>
 
+    <!-- Internal Linking Section -->
+    <div class="container" style="margin-bottom: 60px;">
+        <div id="nearby-locations"></div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -387,6 +392,7 @@ def create_page(location, is_tehsil=False):
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/internal-linking.js"></script>
     <script>
         // Simple FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {{

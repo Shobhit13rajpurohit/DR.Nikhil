@@ -1,130 +1,143 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // 1. Initialize Map
-    // Center on Ahmedabad by default
-    const map = L.map('map').setView([23.0225, 72.5714], 12);
-
+    // Default center India
+    const map = L.map('map').setView([20.5937, 78.9629], 5);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 20
     }).addTo(map);
 
-    // 2. Data
-    const data = window.locationsData || {};
-    // Hardcoded list of online cities based on generate_seo_pages.py
-    const onlineCities = [
-        "Surat", "Vadodara", "Rajkot", "Gandhinagar", "Bhavnagar", "Jamnagar",
-        "Junagadh", "Anand", "Nadiad", "Mehsana", "Morbi", "Bharuch", "Vapi", "Navsari"
-    ];
-
     const listContainer = document.getElementById('locationsList');
     const searchInput = document.getElementById('locationSearch');
     const markers = {};
 
-    // Create Markers initially but don't add to map yet? Or add all?
-    // Let's create them and store them.
-    Object.keys(data).forEach(key => {
-        const loc = data[key];
-        if (loc.coordinates) {
-            const link = `physiotherapist-in-${key.toLowerCase().replace(/ /g, '-').replace('&', 'and')}.html`;
-            const marker = L.marker(loc.coordinates);
+    // 2. Fetch Index
+    let searchIndex = [];
+    try {
+        const response = await fetch('js/location-index.json');
+        if (!response.ok) throw new Error('Failed to load index');
+        searchIndex = await response.json();
+    } catch (e) {
+        console.error(e);
+        listContainer.innerHTML = '<li class="location-item" style="padding:15px; color:red;">Error loading locations. Please try again later.</li>';
+        return;
+    }
+
+    // 3. Merge with local map data (if available in global scope from locations.html)
+    const localData = window.locationsData || {};
+
+    // Add markers for items that have coords in localData
+    searchIndex.forEach(item => {
+        // Try to find matching key in localData
+        // localData keys are like "Bopal", "Satellite", etc.
+        const local = localData[item.name];
+
+        if (local && local.coordinates) {
+            item.coordinates = local.coordinates;
+            // Create marker
+            const marker = L.marker(local.coordinates);
             marker.bindPopup(`
                 <div style="text-align: center;">
-                    <h4 style="margin: 0; color: #003366;">${key}</h4>
+                    <h5 style="margin: 0; color: #003366; font-family: 'Montserrat', sans-serif;">${item.name}</h5>
                     <span style="display: inline-block; background: #d4edda; color: #155724; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin: 5px 0;">Home Visit Available</span><br>
-                    <a href="${link}" style="color: #00A86B; font-weight: bold; text-decoration: none;">View Details</a>
+                    <a href="${item.url}" style="color: #00A86B; font-weight: bold; text-decoration: none; font-size: 0.9rem;">View Page</a>
                 </div>
             `);
-
             marker.on('click', () => {
-                highlightListItem(key);
+                // Optional: Scroll list to item
             });
-
-            markers[key] = marker;
+            markers[item.name] = marker;
+            item.marker = marker;
         }
     });
 
-    function highlightListItem(key) {
-        // Only if item is in the current filtered list
-        const item = document.querySelector(`.location-item[data-key="${key}"]`);
-        if (item) {
-            document.querySelectorAll('.location-item').forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-
-    // 3. Render List & Update Map
+    // 4. Render List Function
     function renderList(filterText = '') {
         listContainer.innerHTML = '';
-        let matchCount = 0;
         const normalizedFilter = filterText.toLowerCase().trim();
+        let matchCount = 0;
 
-        // Clear all markers first
-        Object.values(markers).forEach(marker => map.removeLayer(marker));
+        // Clear all markers from map first
+        Object.values(markers).forEach(m => map.removeLayer(m));
 
-        // 3a. Home Visit Matches
-        Object.keys(data).sort().forEach(key => {
-            const loc = data[key];
+        // Filter items
+        const matches = searchIndex.filter(item => {
+            if (!normalizedFilter) return true;
+            // Search in name and keywords
+            const inName = item.name.toLowerCase().includes(normalizedFilter);
+            const inKeywords = item.keywords && item.keywords.some(k => k.toLowerCase().includes(normalizedFilter));
+            return inName || inKeywords;
+        });
 
-            if (normalizedFilter && !key.toLowerCase().includes(normalizedFilter)) {
-                return; // Skip if filtered out
-            }
+        // Sort: Exact matches first, then starts with, then contains
+        matches.sort((a, b) => {
+             const aName = a.name.toLowerCase();
+             const bName = b.name.toLowerCase();
+             if (aName === normalizedFilter) return -1;
+             if (bName === normalizedFilter) return 1;
+             if (aName.startsWith(normalizedFilter) && !bName.startsWith(normalizedFilter)) return -1;
+             if (bName.startsWith(normalizedFilter) && !aName.startsWith(normalizedFilter)) return 1;
+             return 0;
+        });
+
+        // Determine what to display
+        // If no filter, show States and Ahmedabad locations (as "Featured") to avoid 100+ items list
+        let displayItems = matches;
+        if (!normalizedFilter) {
+            displayItems = matches.filter(i => i.type === 'State' || i.parent === 'Ahmedabad');
+        }
+
+        displayItems.forEach(item => {
             matchCount++;
 
-            // Add marker back to map
-            if (markers[key]) {
-                markers[key].addTo(map);
+            // Add marker to map if displayed and exists
+            if (item.marker) {
+                item.marker.addTo(map);
             }
 
             const li = document.createElement('li');
             li.className = 'location-item';
-            li.dataset.key = key; // For reverse lookup
+
+            // Determine badge style
+            let badgeClass = 'status-online';
+            let badgeText = 'Online Consultation';
+            let icon = 'fa-laptop-medical';
+
+            if (item.type.includes('Home Visit') || item.type.includes('Clinic')) {
+                badgeClass = 'status-home';
+                badgeText = 'Home Visit Available';
+                icon = 'fa-home';
+            } else if (item.type === 'State') {
+                badgeClass = 'status-online';
+                badgeText = 'Statewide Service';
+                icon = 'fa-map';
+            }
+
             li.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                    <h4 style="margin:0; font-size: 1rem;">${key}</h4>
+                    <h4 style="margin:0; font-size: 1rem;">${item.name}</h4>
                     <i class="fas fa-chevron-right" style="color: #ccc; font-size: 0.8rem;"></i>
                 </div>
-                <span class="status-badge status-home"><i class="fas fa-home"></i> Home Visit Available</span>
+                <div style="display:flex; justify-content: space-between; align-items: center;">
+                    <span class="status-badge ${badgeClass}"><i class="fas ${icon}"></i> ${badgeText}</span>
+                    <small style="color: #888;">${item.parent}</small>
+                </div>
             `;
 
             li.addEventListener('click', () => {
-                if (markers[key]) {
-                    map.setView(markers[key].getLatLng(), 15);
-                    markers[key].openPopup();
+                if (item.coordinates) {
+                    map.setView(item.coordinates, 15);
+                    item.marker.openPopup();
                 }
-                // Highlight
-                document.querySelectorAll('.location-item').forEach(i => i.classList.remove('active'));
-                li.classList.add('active');
+                // Redirect logic
+                window.location.href = item.url;
             });
 
             listContainer.appendChild(li);
         });
 
-        // 3b. Online Consultation Matches (if search is active)
-        if (normalizedFilter) {
-            onlineCities.forEach(city => {
-                if (city.toLowerCase().includes(normalizedFilter)) {
-                    matchCount++;
-                    const li = document.createElement('li');
-                    li.className = 'location-item';
-                    li.innerHTML = `
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <h4 style="margin:0; font-size: 1rem;">${city}</h4>
-                        </div>
-                        <span class="status-badge status-online"><i class="fas fa-laptop-medical"></i> Online Consultation</span>
-                    `;
-                    // Redirect to generic or specific online page
-                    const onlineLink = `online-physiotherapy-${city.toLowerCase()}.html`;
-                    li.addEventListener('click', () => {
-                        window.location.href = onlineLink;
-                    });
-                    listContainer.appendChild(li);
-                }
-            });
-        }
-
-        // 3c. No Match -> Coming Soon
+        // No Match -> Coming Soon
         if (matchCount === 0 && normalizedFilter) {
              const li = document.createElement('li');
              li.className = 'location-item';
@@ -133,23 +146,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h4 style="color: #666; margin-bottom: 5px;">${filterText}</h4>
                 <span class="status-badge status-soon"><i class="fas fa-clock"></i> Coming Soon</span>
                 <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">
-                    We don't have home visits in this area yet, but you can join our waiting list or book an online consultation.
+                    We are expanding! Join our waiting list or book an online consultation.
                 </p>
                 <div style="margin-top: 10px;">
-                    <a href="contact.html" class="btn btn-sm btn-primary" style="font-size: 0.8rem;">Notify Me</a>
-                    <a href="contact.html" class="btn btn-sm btn-outline-primary" style="font-size: 0.8rem; margin-left: 5px;">Book Online</a>
+                    <a href="contact.html" class="btn btn-sm btn-primary" style="font-size: 0.8rem;">Request Service</a>
                 </div>
             `;
             listContainer.appendChild(li);
-        } else if (matchCount === 0 && !normalizedFilter) {
-             // Should not happen if data is present, but just in case
         }
     }
 
     // Initial Render
     renderList();
 
-    // 4. Search Listener
+    // Search Listener
     searchInput.addEventListener('input', (e) => {
         renderList(e.target.value);
     });
