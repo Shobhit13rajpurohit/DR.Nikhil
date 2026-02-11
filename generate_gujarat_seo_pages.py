@@ -210,6 +210,11 @@ template = """<!DOCTYPE html>
         </div>
     </section>
 
+    <!-- Internal Linking Section -->
+    <div class="container" style="margin-bottom: 60px;">
+        <div id="nearby-locations"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -267,6 +272,7 @@ template = """<!DOCTYPE html>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/internal-linking.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
