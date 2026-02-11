@@ -309,13 +309,14 @@ def create_page(location, is_tehsil=False):
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo" width="150" height="50"></a>
+                <a href="index.html" class="logo"><img src="Public/bgremove_logo.png" alt="Dr. Nikhil Physio Logo" width="150" height="50" loading="lazy"></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About Dr. Nikhil</a></li>
                     <li><a href="services.html">Services</a></li>
+                    <li><a href="tips.html">Tips & Exercises</a></li>
                     <li><a href="locations.html">Locations</a></li>
-                    <li><a href="contact.html" class="btn btn-primary nav-btn" style="margin-top:0; padding: 10px 20px;">Book Now</a></li>
+                    <li><a href="contact.html" class="btn btn-primary nav-btn">Book Appointment</a></li>
                 </ul>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
@@ -367,26 +368,49 @@ def create_page(location, is_tehsil=False):
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo">
-                    <p>Restoring Movement, Improving Life.</p>
+                    <img src="Public/whitebglogo.jpeg" alt="Dr. Nikhil Physio Logo" class="footer-logo" loading="lazy">
+                    <p>Providing expert physiotherapy care with a human touch. Dedicated to restoring movement and improving quality of life.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
+                        <li><a href="locations.html">Areas We Serve</a></li>
+                        <li><a href="tips.html">Tips & Exercises</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#home-physio">Home Physiotherapy</a></li>
+                        <li><a href="services.html#online-physio">Online Consultation</a></li>
+                        <li><a href="services.html#sports-rehab">Sports Rehab</a></li>
+                        <li><a href="services.html#neuro-rehab">Neuro Rehab</a></li>
+                        <li><a href="services.html#pain-management">Pain Management</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><strong>Dr. Nikhil Rajpurohit</strong></p>
+                    <p><strong>Dr. Nikhil Rajpurohit (PT)</strong></p>
+                    <p>B.P.T, GPC-21467</p>
                     <p>Consultant Physiotherapist</p>
-                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
+                    <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
+
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom text-center">
-                <p>&copy; 2024 Dr. Nikhil Rajpurohit. All Rights Reserved.</p>
+                <p>&copy; <span id="year"></span> Dr. Nikhil Rajpurohit. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -394,6 +418,7 @@ def create_page(location, is_tehsil=False):
     <script src="js/main.js"></script>
     <script src="js/internal-linking.js"></script>
     <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
         // Simple FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {{
             item.addEventListener('click', event => {{
