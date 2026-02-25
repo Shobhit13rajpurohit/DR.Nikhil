@@ -225,7 +225,7 @@ def create_page(location, is_tehsil=False):
         "image": "https://www.drnikhilphysio.in/Public/dr.nikhil.jpeg",
         "@id": canonical_url,
         "url": canonical_url,
-        "telephone": "+919876543210",
+        "telephone": "+91-8094767023",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "233/1/B Mukhivas, Jehangirpura",
@@ -399,6 +399,7 @@ def create_page(location, is_tehsil=False):
                     <p>B.P.T, GPC-21467</p>
                     <p>Consultant Physiotherapist</p>
                     <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
+                    <p><i class="fas fa-phone"></i> +91-8094767023</p>
                     <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
 
                     <div class="social-links mt-3">

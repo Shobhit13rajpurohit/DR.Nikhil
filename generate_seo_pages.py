@@ -166,6 +166,7 @@ template = """<!DOCTYPE html>
                     <p>B.P.T, GPC-21467</p>
                     <p>Consultant Physiotherapist</p>
                     <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
+                    <p><i class="fas fa-phone"></i> +91-8094767023</p>
                     <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
 
                     <div class="social-links mt-3">
@@ -732,6 +733,7 @@ def generate_pages():
                     <p>B.P.T, GPC-21467</p>
                     <p>Consultant Physiotherapist</p>
                     <p><i class="fas fa-map-marker-alt"></i> 233/1/B Mukhivas, Jehangirpura, Ahmedabad 380016</p>
+                    <p><i class="fas fa-phone"></i> +91-8094767023</p>
                     <p><i class="fas fa-envelope"></i> info@drnikhilphysio.in</p>
 
                     <div class="social-links mt-3">
