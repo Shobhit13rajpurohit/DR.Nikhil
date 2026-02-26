@@ -164,6 +164,55 @@
         </div>
     </section>
 
+    <!-- Pain Locator Section -->
+    <section id="pain-locator" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Where Does It Hurt?</h2>
+                <p>Tap on the area causing you pain to see how we can help.</p>
+            </div>
+            <div class="locator-wrapper">
+                <div class="body-map-container">
+                    <svg viewBox="0 0 300 600" class="pain-map-svg" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#e0e0e0">
+                            <!-- Head -->
+                            <circle cx="150" cy="50" r="30" />
+                            <!-- Neck -->
+                            <rect x="140" y="80" width="20" height="20" />
+                            <!-- Torso -->
+                            <rect x="110" y="100" width="80" height="140" rx="20" />
+                            <!-- Arms -->
+                            <path d="M110 110 Q90 110 70 160 L50 210" stroke="#e0e0e0" stroke-width="20" stroke-linecap="round" fill="none" />
+                            <path d="M190 110 Q210 110 230 160 L250 210" stroke="#e0e0e0" stroke-width="20" stroke-linecap="round" fill="none" />
+                            <!-- Legs -->
+                            <path d="M130 230 L125 350 L120 470" stroke="#e0e0e0" stroke-width="22" stroke-linecap="round" fill="none" />
+                            <path d="M170 230 L175 350 L180 470" stroke="#e0e0e0" stroke-width="22" stroke-linecap="round" fill="none" />
+                        </g>
+
+                        <!-- Interactive Points -->
+                        <g class="interactive-points">
+                            <circle class="pain-point" cx="150" cy="90" r="10" data-part="neck" />
+                            <circle class="pain-point" cx="110" cy="110" r="10" data-part="shoulder" />
+                            <circle class="pain-point" cx="190" cy="110" r="10" data-part="shoulder" />
+                            <circle class="pain-point" cx="150" cy="160" r="10" data-part="back" />
+                            <circle class="pain-point" cx="125" cy="350" r="10" data-part="knee" />
+                            <circle class="pain-point" cx="175" cy="350" r="10" data-part="knee" />
+                            <circle class="pain-point" cx="120" cy="470" r="10" data-part="ankle" />
+                            <circle class="pain-point" cx="180" cy="470" r="10" data-part="ankle" />
+                        </g>
+                    </svg>
+                </div>
+                <div id="pain-details" class="pain-details glass-card">
+                    <div class="empty-state">
+                        <i class="fas fa-hand-pointer"></i>
+                        <h3>Tap a highlighted area on the body map.</h3>
+                        <p>We'll show you potential causes and how Dr. Nikhil can help you recover.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Problems We Solve (Services Refined) -->
     <section class="services-preview section-padding bg-light">
         <div class="container">
@@ -385,5 +434,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/internal-linking.js"></script>
+    <script src="js/pain-locator.js"></script>
 </body>
 </html>
